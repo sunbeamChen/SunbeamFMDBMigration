@@ -29,11 +29,6 @@
  */
 @property (nonatomic, copy) NSString* databaseFilePath;
 
-/**
- *  SBFMDBMigration数据库迁移服务
- */
-@property (nonatomic, weak) SunbeamDBMigrationService* sunbeamDBMigrationService;
-
 @end
 
 @implementation SunbeamDBService
@@ -117,14 +112,14 @@ sunbeam_singleton_implementation(SunbeamDBService)
  */
 - (void) beginSunbeamDBMigration
 {
-    self.sunbeamDBMigrationService = [[SunbeamDBMigrationService alloc] initSunbeamDBMigrationService:self customSqlBundleName:nil];
+    SunbeamDBMigrationService* sunbeamDBMigrationService = [[SunbeamDBMigrationService alloc] initSunbeamDBMigrationService:self customSqlBundleName:nil];
     
-    if (self.sunbeamDBMigrationService == nil) {
+    if (sunbeamDBMigrationService == nil) {
         @throw [NSException exceptionWithName:SunbeamDBExceptionName reason:@"SBFMDBMigration service is nil" userInfo:nil];
         return;
     }
     
-    [self.sunbeamDBMigrationService doSunbeamDBMigration];
+    [sunbeamDBMigrationService doSunbeamDBMigration];
 }
 
 #pragma mark - SBFMDBMigration delegate
