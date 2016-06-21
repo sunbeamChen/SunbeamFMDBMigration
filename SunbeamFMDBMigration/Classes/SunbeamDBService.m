@@ -32,7 +32,7 @@
 /**
  *  SBFMDBMigration数据库迁移服务
  */
-@property (nonatomic, strong) SunbeamDBMigrationService* sunbeamDBMigrationService;
+@property (nonatomic, weak) SunbeamDBMigrationService* sunbeamDBMigrationService;
 
 @end
 
@@ -65,7 +65,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
     [self DBInit];
     
     // 开始执行数据库迁移服务
-    [self beginSBFMDBMigration];
+    [self beginSunbeamDBMigration];
 }
 
 /**
@@ -102,7 +102,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
  *
  *  @return FMDBDatabase
  */
-- (id) getSBFMDBDatabase
+- (id) getSunbeamDBDatabase
 {
     if (self.database == nil) {
         @throw [NSException exceptionWithName:SunbeamDBExceptionName reason:@"FMDB database instance is nil" userInfo:nil];
@@ -115,7 +115,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
 /**
  *  开始执行数据库迁移操作
  */
-- (void) beginSBFMDBMigration
+- (void) beginSunbeamDBMigration
 {
     self.sunbeamDBMigrationService = [[SunbeamDBMigrationService alloc] initSunbeamDBMigrationService:self customSqlBundleName:nil];
     
@@ -144,7 +144,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
  *
  *  @return 执行结果
  */
-- (BOOL) executeTransactionSBFMDBUpdate:(NSString*)sql, ...
+- (BOOL) executeTransactionSunbeamDBUpdate:(NSString*)sql, ...
 {
     va_list args;
     va_start(args, sql);
@@ -170,7 +170,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
  *
  *  @return 查询结果
  */
-- (NSMutableArray *) executeSBFMDBQuery:(NSString*)sql, ...
+- (NSMutableArray *) executeSunbeamDBQuery:(NSString*)sql, ...
 {
     va_list args;
     va_start(args, sql);

@@ -134,7 +134,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
     return self;
 }
 
-- (void)doSBFMDBMigration
+- (void)doSunbeamDBMigration
 {
     if (self.delegate == nil) {
         @throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"SBFMDBMigration delegate should not be nil." userInfo:nil];
