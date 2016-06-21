@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SunbeamFMDBMigration'    #名称
-  s.version          = '0.1.0'  #版本号
+  s.version          = '0.1.1'  #版本号
   s.summary          = 'SunbeamFMDBMigration -> an database migration strategy when app upgrade.' #简短介绍，下面是详细介绍
 
   s.description      = <<-DESC
@@ -24,7 +24,7 @@ SunbeamFMDBMigration : when app upgrating, the database structure of new version
   #   'SBFMDBMigration' => ['SunbeamFMDBMigration/Assets/*.png']
   # }   #资源文件地址
 
-  #s.public_header_files = 'SunbeamFMDBMigration/Classes/**/*.h'    #公开头文件地址
+  s.public_header_files = 'SunbeamFMDBMigration/Classes/**/*.h'    #公开头文件地址
   # s.frameworks = 'UIKit', 'MapKit'    #所需的framework，多个用逗号隔开
   s.dependency 'FMDB'   #依赖关系，该项目所依赖的其他库，如果有多个需要填写多个s.dependency
 end
