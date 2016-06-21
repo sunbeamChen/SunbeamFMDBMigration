@@ -6,11 +6,10 @@
 //
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "SunbeamDBMigrationService.h"
+#import "SunbeamDBService.h"
 
 FOUNDATION_EXPORT double SunbeamFMDBMigrationVersionNumber;
 FOUNDATION_EXPORT const unsigned char SunbeamFMDBMigrationVersionString[];
-
-#import "SunbeamDBService.h"
-
-#import "SunbeamDBMigrationService.h"
