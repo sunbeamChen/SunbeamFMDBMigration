@@ -11,6 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+ios version >= 7.0
+
 ## Installation
 
 SunbeamFMDBMigration is available through [CocoaPods](http://cocoapods.org). To install
@@ -22,7 +24,7 @@ pod "SunbeamFMDBMigration"
 
 ## Author
 
-sunbeamChen, chenxun1990@126.com
+sunbeamChen, chenxun1990@126.com / sunbeamhome@163.com
 
 ## License
 

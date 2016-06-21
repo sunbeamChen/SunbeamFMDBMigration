@@ -1,0 +1,16 @@
+PODS:
+  - SunbeamFMDBMigration (0.1.0)
+
+DEPENDENCIES:
+  - SunbeamFMDBMigration (from `../`)
+
+EXTERNAL SOURCES:
+  SunbeamFMDBMigration:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SunbeamFMDBMigration: a137330d2b616f634c65c2b8df5c6904f87a27be
+
+PODFILE CHECKSUM: 302e32d106931ec9b5dd410a803fbfe8294d1416
+
+COCOAPODS: 1.0.1
