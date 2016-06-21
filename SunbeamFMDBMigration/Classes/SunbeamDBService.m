@@ -17,7 +17,7 @@
  */
 #define SunbeamDBExceptionName @"SunbeamDB exception"
 
-@interface SunbeamDBService()
+@interface SunbeamDBService() <SunbeamDBMigrationDelegate>
 
 /**
  *  FMDB数据库实例
@@ -28,6 +28,11 @@
  *  数据库文件具体路径
  */
 @property (nonatomic, copy) NSString* databaseFilePath;
+
+/**
+ *  SBFMDBMigration数据库迁移服务
+ */
+@property (nonatomic, strong) SunbeamDBMigrationService* sunbeamDBMigrationService;
 
 @end
 
@@ -112,14 +117,14 @@ sunbeam_singleton_implementation(SunbeamDBService)
  */
 - (void) beginSunbeamDBMigration
 {
-    SunbeamDBMigrationService* sunbeamDBMigrationService = [[SunbeamDBMigrationService alloc] initSunbeamDBMigrationService:self customSqlBundleName:nil];
+    self.sunbeamDBMigrationService = [[SunbeamDBMigrationService alloc] initSunbeamDBMigrationService:self customSqlBundleName:nil];
     
-    if (sunbeamDBMigrationService == nil) {
+    if (self.sunbeamDBMigrationService == nil) {
         @throw [NSException exceptionWithName:SunbeamDBExceptionName reason:@"SBFMDBMigration service is nil" userInfo:nil];
         return;
     }
     
-    [sunbeamDBMigrationService doSunbeamDBMigration];
+    [self.sunbeamDBMigrationService doSunbeamDBMigration];
 }
 
 #pragma mark - SBFMDBMigration delegate
