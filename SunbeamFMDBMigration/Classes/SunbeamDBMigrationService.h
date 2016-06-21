@@ -11,7 +11,7 @@
 /**
  *  SunbeamDBMigrationService lib version
  */
-#define SUNBEAM_DB_MIGRATION_LIB_VERSION @"0.1.1"
+#define SUNBEAM_DB_MIGRATION_LIB_VERSION @"0.1.2"
 
 /**
  *  SunbeamFMDBMigration运行结果
@@ -80,7 +80,7 @@ typedef NS_ENUM(NSInteger, SunbeamDBMigrationStatus) {
  *
  *  @param delegate            代理
  *  @param database            FMDB数据库实例
- *  @param customSqlBundleName 自定义sql bundle名称，如果为nil，则采用默认名称SBFMDBMigrationSQL
+ *  @param customSqlBundleName 自定义sql bundle名称，如果为nil，则采用默认名称SunbeamDBMigrationSQL
  *
  *  @return 返回数据库迁移服务实例
  */

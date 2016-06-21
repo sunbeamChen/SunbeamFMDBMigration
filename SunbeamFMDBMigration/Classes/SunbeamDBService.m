@@ -8,9 +8,10 @@
 
 #import "SunbeamDBService.h"
 
+/**
+ *  FMDB数据库服务
+ */
 #import <FMDB/FMDB.h>
-
-#import "SunbeamDBMigrationService.h"
 
 /**
  *  SBFMDBMigration exception name
@@ -32,7 +33,7 @@
 /**
  *  SBFMDBMigration数据库迁移服务
  */
-@property (nonatomic, strong) SunbeamDBMigrationService* sunbeamDBMigrationService;
+@property (nonatomic, strong, readwrite) SunbeamDBMigrationService* sunbeamDBMigrationService;
 
 @end
 

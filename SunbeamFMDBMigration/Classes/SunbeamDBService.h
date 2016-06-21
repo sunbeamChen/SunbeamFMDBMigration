@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  数据库迁移服务
+ */
+#import "SunbeamDBMigrationService.h"
+
+/**
+ *  单例
+ */
 #import "SunbeamSingletonService.h"
 
 @interface SunbeamDBService : NSObject
@@ -16,6 +24,11 @@
  *  单例
  */
 sunbeam_singleton_interface(SunbeamDBService)
+
+/**
+ *  SBFMDBMigration数据库迁移服务
+ */
+@property (nonatomic, strong, readonly) SunbeamDBMigrationService* sunbeamDBMigrationService;
 
 /**
  *  初始化SBFMDB服务

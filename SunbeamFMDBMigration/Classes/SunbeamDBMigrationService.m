@@ -224,7 +224,9 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
  */
 - (BOOL) checkSQLTableExist
 {
-    if ([[SunbeamDBService sharedSunbeamDBService] executeSunbeamDBQuery:SELECT_SQL_TABLE_EXIST]) {
+    NSMutableArray* array = [[SunbeamDBService sharedSunbeamDBService] executeSunbeamDBQuery:SELECT_SQL_TABLE_EXIST];
+    
+    if (array != nil && [array count] > 0) {
         return YES;
     }
     
