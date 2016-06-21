@@ -30,7 +30,7 @@ sunbeam_singleton_interface(SunbeamDBService)
  *
  *  @return FMDBDatabase
  */
-- (id) getSunbeamFMDBDatabase;
+- (id) getSunbeamDBDatabase;
 
 /**
  *  执行sql语句更新命令
@@ -39,7 +39,7 @@ sunbeam_singleton_interface(SunbeamDBService)
  *
  *  @return 执行结果
  */
-- (BOOL) executeTransactionSunbeamFMDBUpdate:(NSString*)sql, ...;
+- (BOOL) executeTransactionSunbeamDBUpdate:(NSString*)sql, ...;
 
 /**
  *  执行sql语句查询命令
@@ -48,6 +48,6 @@ sunbeam_singleton_interface(SunbeamDBService)
  *
  *  @return 查询结果
  */
-- (NSMutableArray *) executeSunbeamFMDBQuery:(NSString*)sql, ...;
+- (NSMutableArray *) executeSunbeamDBQuery:(NSString*)sql, ...;
 
 @end

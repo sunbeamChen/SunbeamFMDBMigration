@@ -11,7 +11,7 @@
 /**
  *  SunbeamDBMigrationService lib version
  */
-#define SB_DB_MIGRATION_LIB_VERSION @"0.6.6"
+#define SUNBEAM_DB_MIGRATION_LIB_VERSION @"0.1.0"
 
 /**
  *  SunbeamFMDBMigration运行结果
@@ -84,7 +84,7 @@ typedef NS_ENUM(NSInteger, SunbeamDBMigrationStatus) {
  *
  *  @return 返回数据库迁移服务实例
  */
-- (instancetype) initSBFMDBMigrationService:(id<SunbeamDBMigrationDelegate>) delegate customSqlBundleName:(NSString *) customSqlBundleName;
+- (instancetype) initSunbeamDBMigrationService:(id<SunbeamDBMigrationDelegate>) delegate customSqlBundleName:(NSString *) customSqlBundleName;
 
 /**
  *  数据库迁移服务代理
