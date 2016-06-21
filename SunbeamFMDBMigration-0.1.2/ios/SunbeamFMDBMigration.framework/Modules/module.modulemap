@@ -1,0 +1,6 @@
+framework module SunbeamFMDBMigration {
+  umbrella header "SunbeamFMDBMigration.h"
+
+  export *
+  module * { export * }
+}
