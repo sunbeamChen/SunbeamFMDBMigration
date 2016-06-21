@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SunbeamFMDBMigration_Example' do
+  pod 'SunbeamFMDBMigration', :path => '../'
+
+  target 'SunbeamFMDBMigration_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
