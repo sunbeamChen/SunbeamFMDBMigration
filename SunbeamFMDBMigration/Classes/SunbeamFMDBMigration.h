@@ -10,3 +10,7 @@
 
 FOUNDATION_EXPORT double SunbeamFMDBMigrationVersionNumber;
 FOUNDATION_EXPORT const unsigned char SunbeamFMDBMigrationVersionString[];
+
+#import "SunbeamDBService.h"
+
+#import "SunbeamDBMigrationService.h"

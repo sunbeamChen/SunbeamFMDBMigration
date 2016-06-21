@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		001F7D63B37D24A839D7E49FF3D179BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		3375F2D01D18CE68007DF354 /* SunbeamDBService.h in Headers */ = {isa = PBXBuildFile; fileRef = 3375F2CE1D18CE68007DF354 /* SunbeamDBService.h */; };
+		3375F2D11D18CE68007DF354 /* SunbeamDBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3375F2CF1D18CE68007DF354 /* SunbeamDBService.m */; };
+		3375F2D41D18CE8A007DF354 /* SunbeamDBMigrationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 3375F2D21D18CE8A007DF354 /* SunbeamDBMigrationService.h */; };
+		3375F2D51D18CE8A007DF354 /* SunbeamDBMigrationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3375F2D31D18CE8A007DF354 /* SunbeamDBMigrationService.m */; };
 		362F1204A8EAAE396289155066490509 /* Pods-SunbeamFMDBMigration_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C32906568BDF1E54FEF706BCEC7761FC /* Pods-SunbeamFMDBMigration_Tests-dummy.m */; };
 		451C568DD0E0E2E5D75A5BFB2F0E8DD2 /* Pods-SunbeamFMDBMigration_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC34244E118015F8DCFCB7028C76FB /* Pods-SunbeamFMDBMigration_Example-dummy.m */; };
 		5481D3E8B1E0DE7FDCF104428E4E2294 /* SunbeamFMDBMigration-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 78B3C4994A092ABFAF5B2F042F0F7EEF /* SunbeamFMDBMigration-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +38,11 @@
 		28A0AB50FAD49C82A73B01D262EDAA4F /* Pods-SunbeamFMDBMigration_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SunbeamFMDBMigration_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2EAC34244E118015F8DCFCB7028C76FB /* Pods-SunbeamFMDBMigration_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SunbeamFMDBMigration_Example-dummy.m"; sourceTree = "<group>"; };
 		3375F2C91D18CAAB007DF354 /* SunbeamFMDBMigration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SunbeamFMDBMigration.h; sourceTree = "<group>"; };
+		3375F2CE1D18CE68007DF354 /* SunbeamDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunbeamDBService.h; sourceTree = "<group>"; };
+		3375F2CF1D18CE68007DF354 /* SunbeamDBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunbeamDBService.m; sourceTree = "<group>"; };
+		3375F2D21D18CE8A007DF354 /* SunbeamDBMigrationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunbeamDBMigrationService.h; sourceTree = "<group>"; };
+		3375F2D31D18CE8A007DF354 /* SunbeamDBMigrationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunbeamDBMigrationService.m; sourceTree = "<group>"; };
+		3375F2D61D18CEBF007DF354 /* SunbeamSingletonService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SunbeamSingletonService.h; sourceTree = "<group>"; };
 		3D0760534628B62F9C6C6D91FA2F5E93 /* Pods_SunbeamFMDBMigration_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SunbeamFMDBMigration_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400CD362AABE8438FB106825D6A954BB /* Pods-SunbeamFMDBMigration_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SunbeamFMDBMigration_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		57B7719F649F448C1E5D0DE8A5F20D4B /* SunbeamFMDBMigration.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SunbeamFMDBMigration.modulemap; sourceTree = "<group>"; };
@@ -195,6 +204,11 @@
 			isa = PBXGroup;
 			children = (
 				3375F2C91D18CAAB007DF354 /* SunbeamFMDBMigration.h */,
+				3375F2CE1D18CE68007DF354 /* SunbeamDBService.h */,
+				3375F2CF1D18CE68007DF354 /* SunbeamDBService.m */,
+				3375F2D21D18CE8A007DF354 /* SunbeamDBMigrationService.h */,
+				3375F2D31D18CE8A007DF354 /* SunbeamDBMigrationService.m */,
+				3375F2D61D18CEBF007DF354 /* SunbeamSingletonService.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -245,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4D4300B84C7D5A2BCDF8DEA02E2E3BE /* Pods-SunbeamFMDBMigration_Example-umbrella.h in Headers */,
+				3375F2D01D18CE68007DF354 /* SunbeamDBService.h in Headers */,
+				3375F2D41D18CE8A007DF354 /* SunbeamDBMigrationService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +368,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3375F2D11D18CE68007DF354 /* SunbeamDBService.m in Sources */,
 				451C568DD0E0E2E5D75A5BFB2F0E8DD2 /* Pods-SunbeamFMDBMigration_Example-dummy.m in Sources */,
+				3375F2D51D18CE8A007DF354 /* SunbeamDBMigrationService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
