@@ -435,7 +435,8 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         
         for (NSString* tbName in tableInitNameArray) {
             if (![self executeMigrationSQLCommand:[self formatTableCreateSQLCommand:tbName params:[self.currentDBTableDictionary objectForKey:tbName]]]) {
-                @throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"DB Table create failed." userInfo:nil];
+                //@throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"DB Table create failed." userInfo:nil];
+                NSLog(@"DB Table create failed.");
             }
         }
     } else if (self.dbInitStatus == SunbeamDBInitStatusUpgrade) {
@@ -443,7 +444,8 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         // 根据dropTableArray删除table
         for (NSString* dropTBName in self.dropTableArray) {
             if (![self executeMigrationSQLCommand:[self formatTableDropSQLCommand:dropTBName]]) {
-                @throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"DB Table drop failed." userInfo:nil];
+                //@throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"DB Table drop failed." userInfo:nil];
+                NSLog(@"DB Table drop failed.");
             }
         }
         
@@ -451,7 +453,8 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         // 将所有原有的table修改名称为 temp_"tableName"
         for (NSString* tbName in self.originTableArray) {
             if (![self executeMigrationSQLCommand:[self formatTableRenameSQLCommand:tbName]]) {
-                @throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"DB Table rename failed." userInfo:nil];
+                //@throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"DB Table rename failed." userInfo:nil];
+                NSLog(@"DB Table rename failed.");
             }
         }
         
@@ -460,7 +463,8 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         
         for (NSString* tbName in tableInitNameArray) {
             if (![self executeMigrationSQLCommand:[self formatTableCreateSQLCommand:tbName params:[self.currentDBTableDictionary objectForKey:tbName]]]) {
-                @throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"DB Table create failed." userInfo:nil];
+                //@throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"DB Table create failed." userInfo:nil];
+                NSLog(@"DB Table create failed.");
             }
         }
         
@@ -472,7 +476,8 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         
         for (NSString* tbName in originTableNameArray) {
             if (![self executeMigrationSQLCommand:[self formatTableDataMigrationSQLCommand:tbName originTableParams:[self.originTableParamsDictionary objectForKey:tbName]]]) {
-                @throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"DB Table data migration failed." userInfo:nil];
+                //@throw [NSException exceptionWithName:SunbeamDBMigrationExceptionName reason:@"DB Table data migration failed." userInfo:nil];
+                NSLog(@"DB Table data migration failed.");
             } else {
                 // 迁移数据成功后删除tempTables
                 [self executeMigrationSQLCommand:[self formatTempTableDropSQLCommand:tbName]];

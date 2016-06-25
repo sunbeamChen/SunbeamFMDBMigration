@@ -11,7 +11,7 @@
 /**
  *  SunbeamDBMigrationService lib version
  */
-#define SUNBEAM_DB_MIGRATION_LIB_VERSION @"0.1.2"
+#define SUNBEAM_DB_MIGRATION_LIB_VERSION @"0.1.3"
 
 /**
  *  SunbeamFMDBMigration运行结果
