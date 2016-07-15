@@ -213,7 +213,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
     id object = va_arg(args, id);
     
     while (object) {
-        [list addObject:obj];
+        [list addObject:object];
         object = va_arg(args, id);
     }
     
@@ -263,7 +263,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
     id object = va_arg(args, id);
     
     while (object) {
-        [list addObject:obj];
+        [list addObject:object];
         object = va_arg(args, id);
     }
     
