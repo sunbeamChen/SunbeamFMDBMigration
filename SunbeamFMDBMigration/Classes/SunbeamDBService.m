@@ -206,7 +206,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
     va_list args;
     va_start(args, sql);
     
-    __block NSMutableArray* list = [[NSMutableArray alloc] initWithObjects:sql, nil];
+    __block NSMutableArray* list = [NSMutableArray arrayWithObject:sql];
     id obj;
     while ((obj = va_arg(args, id)) != nil) {
         [list addObject:obj];
@@ -218,7 +218,6 @@ sunbeam_singleton_implementation(SunbeamDBService)
     
     if (self.useDatabaseQueue) {
         NSLog(@"FMDB update：%@", list);
-        
         [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
             result = [db executeUpdate:sql withArgumentsInArray:list];
             if (!result) {
@@ -252,7 +251,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
     va_list args;
     va_start(args, sql);
     
-    __block NSMutableArray* list = [[NSMutableArray alloc] initWithObjects:sql, nil];
+    __block NSMutableArray* list = [NSMutableArray arrayWithObject:sql];
     id obj;
     while ((obj = va_arg(args, id)) != nil) {
         [list addObject:obj];
