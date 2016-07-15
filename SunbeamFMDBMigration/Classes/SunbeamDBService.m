@@ -206,13 +206,21 @@ sunbeam_singleton_implementation(SunbeamDBService)
     va_list args;
     va_start(args, sql);
     
+    __block NSMutableArray* list = [[NSMutableArray alloc] initWithObjects:sql, nil];
+    id obj;
+    while ((obj = va_arg(args, id)) != nil) {
+        [list addObject:obj];
+    }
+    
+    va_end(args);
+    
     __block BOOL result = NO;
     
     if (self.useDatabaseQueue) {
-        __block va_list* argsBlock = &args;
+        NSLog(@"FMDB update：%@", list);
         
         [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-            result = [db executeUpdate:sql withVAList:&argsBlock];
+            result = [db executeUpdate:sql withArgumentsInArray:list];
             if (!result) {
                 *rollback = YES;
                 return;
@@ -229,7 +237,6 @@ sunbeam_singleton_implementation(SunbeamDBService)
         }
     }
     
-    va_end(args);
     return result;
 }
 
@@ -242,17 +249,25 @@ sunbeam_singleton_implementation(SunbeamDBService)
  */
 - (NSMutableArray *) executeSunbeamDBQuery:(NSString*)sql, ...
 {
-    __block va_list args;
+    va_list args;
     va_start(args, sql);
+    
+    __block NSMutableArray* list = [[NSMutableArray alloc] initWithObjects:sql, nil];
+    id obj;
+    while ((obj = va_arg(args, id)) != nil) {
+        [list addObject:obj];
+    }
+    
+    va_end(args);
     
     __block NSMutableArray* array = [NSMutableArray array];
     
     if (self.useDatabaseQueue) {
-        __block va_list* argsBlock = &args;
+        NSLog(@"FMDB query：%@", list);
         
         [self.databaseQueue inDatabase:^(FMDatabase *db) {
             
-            FMResultSet* result = [self.database executeQuery:sql withVAList:&argsBlock];
+            FMResultSet* result = [db executeQuery:sql withArgumentsInArray:list];
             
             while ([result next]) {
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -278,7 +293,6 @@ sunbeam_singleton_implementation(SunbeamDBService)
         }
     }
     
-    va_end(args);
     return array;
 }
 
