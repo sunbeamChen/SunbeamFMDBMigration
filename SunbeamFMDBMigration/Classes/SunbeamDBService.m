@@ -26,6 +26,16 @@
 @property (nonatomic, strong) FMDatabase* database;
 
 /**
+ *  FMDB dataQueue
+ */
+@property (nonatomic, strong) FMDatabaseQueue* databaseQueue;
+
+/**
+ *  是否使用database queue
+ */
+@property (nonatomic, assign) BOOL useDatabaseQueue;
+
+/**
  *  数据库文件具体路径
  */
 @property (nonatomic, copy) NSString* databaseFilePath;
@@ -51,7 +61,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
  *  @param dbFilePath 数据库文件路径
  *  @param dbFileName 数据库文件名称
  */
-- (void) initSunbeamDBService:(NSString *) dbFilePath dbFileName:(NSString *) dbFileName
+- (void) initSunbeamDBService:(NSString *) dbFilePath dbFileName:(NSString *) dbFileName useDatabaseQueue:(BOOL) useDatabaseQueue
 {
     // 创建数据库文件保存路径
     if ([self createFilePath:dbFilePath] == nil) {
@@ -62,8 +72,13 @@ sunbeam_singleton_implementation(SunbeamDBService)
     // 初始化数据库文件具体路径
     self.databaseFilePath = [dbFilePath stringByAppendingPathComponent:dbFileName];
     
-    // 数据库初始化，并打开
-    [self DBInit];
+    self.useDatabaseQueue = useDatabaseQueue;
+    
+    if (useDatabaseQueue) {
+        [self DBQueueInit];
+    } else {
+        [self DBInit];
+    }
     
     // 开始执行数据库迁移服务
     [self beginSunbeamDBMigration];
@@ -99,6 +114,32 @@ sunbeam_singleton_implementation(SunbeamDBService)
 }
 
 /**
+ *  init FMDB database queue
+ */
+- (void) DBQueueInit
+{
+    if (![self isFileExistInExactFilePath:self.databaseFilePath]) {
+        self.databaseQueue = [FMDatabaseQueue databaseQueueWithPath:self.databaseFilePath];
+        
+        if (!self.databaseQueue) {
+            NSLog(@"创建DB文件失败");
+            @throw [NSException exceptionWithName:@"Sherlock DB Exception" reason:@"db file create failed" userInfo:nil];
+            
+            return;
+        }
+    } else {
+        self.databaseQueue = [FMDatabaseQueue databaseQueueWithPath:self.databaseFilePath];
+        
+        if (!self.databaseQueue) {
+            NSLog(@"创建FMDBDatabase失败");
+            @throw [NSException exceptionWithName:@"Sherlock DB Exception" reason:@"FMDB database init failed" userInfo:nil];
+            
+            return;
+        }
+    }
+}
+
+/**
  *  获取FMDBDatabase实例
  *
  *  @return FMDBDatabase
@@ -111,6 +152,21 @@ sunbeam_singleton_implementation(SunbeamDBService)
     }
     
     return self.database;
+}
+
+/**
+ *  获取FMDB database queue实例
+ *
+ *  @return FMDatabaseQueue
+ */
+- (id) getSunbeamDBDatabaseQueue
+{
+    if (self.databaseQueue == nil) {
+        @throw [NSException exceptionWithName:SunbeamDBExceptionName reason:@"FMDB database instance is nil" userInfo:nil];
+        return nil;
+    }
+    
+    return self.databaseQueue;
 }
 
 /**
@@ -150,14 +206,30 @@ sunbeam_singleton_implementation(SunbeamDBService)
     va_list args;
     va_start(args, sql);
     
-    [self.database beginTransaction];
+    __block BOOL result = NO;
     
-    BOOL result = [self.database executeUpdate:sql withVAList:args];
-    
-    if (result) {
-        [self.database commit];
+    if (self.useDatabaseQueue) {
+        __block va_list* argsBlock = args;
+        
+        [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            result = [db executeUpdate:sql withVAList:argsBlock];
+            if (!result) {
+                *rollback = YES;
+                return ;
+            }
+        }];
+        
+        free(argsBlock);
+        argsBlock = NULL;
     } else {
-        [self.database rollback];
+        [self.database beginTransaction];
+        
+        result = [self.database executeUpdate:sql withVAList:args];
+        if (result) {
+            [self.database commit];
+        } else {
+            [self.database rollback];
+        }
     }
     
     va_end(args);
@@ -176,18 +248,39 @@ sunbeam_singleton_implementation(SunbeamDBService)
     va_list args;
     va_start(args, sql);
     
-    FMResultSet* result = [self.database executeQuery:sql withVAList:args];
+    __block NSMutableArray* array = [NSMutableArray array];
     
-    NSMutableArray* array = [NSMutableArray array];
-    
-    while ([result next]) {
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    if (self.useDatabaseQueue) {
+        __block va_list* argsBlock = args;
         
-        for (int i=0; i<result.columnCount; ++i) {
-            dic[[result columnNameForIndex:i]] = [result stringForColumnIndex:i];
+        [self.databaseQueue inDatabase:^(FMDatabase *db) {
+            FMResultSet* result = [self.database executeQuery:sql withVAList:argsBlock];
+            
+            while ([result next]) {
+                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                
+                for (int i=0; i<result.columnCount; ++i) {
+                    dic[[result columnNameForIndex:i]] = [result stringForColumnIndex:i];
+                }
+                
+                [array addObject:dic];
+            }
+        }];
+        
+        free(argsBlock);
+        argsBlock = NULL;
+    } else {
+        FMResultSet* result = [self.database executeQuery:sql withVAList:args];
+        
+        while ([result next]) {
+            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            
+            for (int i=0; i<result.columnCount; ++i) {
+                dic[[result columnNameForIndex:i]] = [result stringForColumnIndex:i];
+            }
+            
+            [array addObject:dic];
         }
-        
-        [array addObject:dic];
     }
     
     va_end(args);

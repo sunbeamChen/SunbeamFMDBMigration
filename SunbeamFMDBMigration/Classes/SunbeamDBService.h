@@ -35,8 +35,9 @@ sunbeam_singleton_interface(SunbeamDBService)
  *
  *  @param dbFilePath 数据库文件路径
  *  @param dbFileName 数据库文件名称
+ *  @param useDatabaseQueue 是否使用database queue
  */
-- (void) initSunbeamDBService:(NSString *) dbFilePath dbFileName:(NSString *) dbFileName;
+- (void) initSunbeamDBService:(NSString *) dbFilePath dbFileName:(NSString *) dbFileName useDatabaseQueue:(BOOL) useDatabaseQueue;
 
 /**
  *  获取FMDBDatabase实例
@@ -44,6 +45,13 @@ sunbeam_singleton_interface(SunbeamDBService)
  *  @return FMDBDatabase
  */
 - (id) getSunbeamDBDatabase;
+
+/**
+ *  获取FMDB database queue实例
+ *
+ *  @return FMDatabaseQueue
+ */
+- (id) getSunbeamDBDatabaseQueue;
 
 /**
  *  执行sql语句更新命令
