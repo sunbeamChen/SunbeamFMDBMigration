@@ -206,13 +206,13 @@ sunbeam_singleton_implementation(SunbeamDBService)
     va_list args;
     va_start(args, sql);
     
+    int numberOfArgs = [sql componentsSeparatedByString:@"?"].count - 1;
+    
     __block NSMutableArray* list = [[NSMutableArray alloc] init];
     
-    NSString* object = va_arg(args, NSString*);
-    
-    while (object) {
+    while (numberOfArgs--) {
+        id object = va_arg(args, id);
         [list addObject:object];
-        object = va_arg(args, NSString*);
     }
     
     __block BOOL result = NO;
@@ -253,13 +253,13 @@ sunbeam_singleton_implementation(SunbeamDBService)
     va_list args;
     va_start(args, sql);
     
+    int numberOfArgs = [sql componentsSeparatedByString:@"?"].count - 1;
+    
     __block NSMutableArray* list = [[NSMutableArray alloc] init];
     
-    NSString* object = va_arg(args, NSString*);
-    
-    while (object) {
+    while (numberOfArgs--) {
+        id object = va_arg(args, id);
         [list addObject:object];
-        object = va_arg(args, NSString*);
     }
     
     __block NSMutableArray* array = [NSMutableArray array];
