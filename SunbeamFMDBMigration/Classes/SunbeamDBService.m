@@ -203,21 +203,17 @@ sunbeam_singleton_implementation(SunbeamDBService)
  */
 - (BOOL) executeTransactionSunbeamDBUpdate:(NSString*)sql, ...
 {
-    __block NSMutableArray* list = [[NSMutableArray alloc] init];
-    
-    [list addObject:sql];
-    
     va_list args;
     va_start(args, sql);
     
-    id object = va_arg(args, id);
+    __block NSMutableArray* list = [[NSMutableArray alloc] init];
+    
+    NSString* object = va_arg(args, NSString*);
     
     while (object) {
         [list addObject:object];
-        object = va_arg(args, id);
+        object = va_arg(args, NSString*);
     }
-    
-    va_end(args);
     
     __block BOOL result = NO;
     
@@ -241,6 +237,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
         }
     }
     
+    va_end(args);
     return result;
 }
 
@@ -253,21 +250,17 @@ sunbeam_singleton_implementation(SunbeamDBService)
  */
 - (NSMutableArray *) executeSunbeamDBQuery:(NSString*)sql, ...
 {
-    __block NSMutableArray* list = [[NSMutableArray alloc] init];
-    
-    [list addObject:sql];
-    
     va_list args;
     va_start(args, sql);
     
-    id object = va_arg(args, id);
+    __block NSMutableArray* list = [[NSMutableArray alloc] init];
+    
+    NSString* object = va_arg(args, NSString*);
     
     while (object) {
         [list addObject:object];
-        object = va_arg(args, id);
+        object = va_arg(args, NSString*);
     }
-    
-    va_end(args);
     
     __block NSMutableArray* array = [NSMutableArray array];
     
@@ -302,6 +295,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
         }
     }
     
+    va_end(args);
     return array;
 }
 
