@@ -203,13 +203,18 @@ sunbeam_singleton_implementation(SunbeamDBService)
  */
 - (BOOL) executeTransactionSunbeamDBUpdate:(NSString*)sql, ...
 {
+    __block NSMutableArray* list = [[NSMutableArray alloc] init];
+    
+    [list addObject:sql];
+    
     va_list args;
     va_start(args, sql);
     
-    __block NSMutableArray* list = [NSMutableArray arrayWithObject:sql];
-    id obj;
-    while ((obj = va_arg(args, id)) != nil) {
+    id object = va_arg(args, id);
+    
+    while (object) {
         [list addObject:obj];
+        object = va_arg(args, id);
     }
     
     va_end(args);
@@ -219,7 +224,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
     if (self.useDatabaseQueue) {
         NSLog(@"FMDB update：%@", list);
         [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-            result = [db executeUpdate:sql withArgumentsInArray:list];
+            result = [db executeUpdate:sql withArgumentsInArray:[list copy]];
             if (!result) {
                 *rollback = YES;
                 return;
@@ -248,13 +253,18 @@ sunbeam_singleton_implementation(SunbeamDBService)
  */
 - (NSMutableArray *) executeSunbeamDBQuery:(NSString*)sql, ...
 {
+    __block NSMutableArray* list = [[NSMutableArray alloc] init];
+    
+    [list addObject:sql];
+    
     va_list args;
     va_start(args, sql);
     
-    __block NSMutableArray* list = [NSMutableArray arrayWithObject:sql];
-    id obj;
-    while ((obj = va_arg(args, id)) != nil) {
+    id object = va_arg(args, id);
+    
+    while (object) {
         [list addObject:obj];
+        object = va_arg(args, id);
     }
     
     va_end(args);
@@ -266,7 +276,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
         
         [self.databaseQueue inDatabase:^(FMDatabase *db) {
             
-            FMResultSet* result = [db executeQuery:sql withArgumentsInArray:list];
+            FMResultSet* result = [db executeQuery:sql withArgumentsInArray:[list copy]];
             
             while ([result next]) {
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
