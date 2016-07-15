@@ -212,7 +212,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
         __block va_list* argsBlock = &args;
         
         [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-            result = [db executeUpdate:sql withVAList:argsBlock];
+            result = [db executeUpdate:sql withVAList:&argsBlock];
             if (!result) {
                 *rollback = YES;
                 return ;
@@ -251,7 +251,7 @@ sunbeam_singleton_implementation(SunbeamDBService)
         __block va_list* argsBlock = &args;
         
         [self.databaseQueue inDatabase:^(FMDatabase *db) {
-            FMResultSet* result = [self.database executeQuery:sql withVAList:argsBlock];
+            FMResultSet* result = [self.database executeQuery:sql withVAList:&argsBlock];
             
             while ([result next]) {
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
