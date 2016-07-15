@@ -219,10 +219,11 @@ sunbeam_singleton_implementation(SunbeamDBService)
         }
     }
     
+    va_end(args);
+    
     __block BOOL result = NO;
     
     if (self.useDatabaseQueue) {
-        NSLog(@"FMDB update：%@", list);
         [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
             result = [db executeUpdate:sql withArgumentsInArray:[list copy]];
             if (!result) {
@@ -241,7 +242,6 @@ sunbeam_singleton_implementation(SunbeamDBService)
         }
     }
     
-    va_end(args);
     return result;
 }
 
@@ -270,11 +270,11 @@ sunbeam_singleton_implementation(SunbeamDBService)
         }
     }
     
+    va_end(args);
+    
     __block NSMutableArray* array = [NSMutableArray array];
     
     if (self.useDatabaseQueue) {
-        NSLog(@"FMDB query：%@", list);
-        
         [self.databaseQueue inDatabase:^(FMDatabase *db) {
             
             FMResultSet* result = [db executeQuery:sql withArgumentsInArray:[list copy]];
@@ -303,7 +303,6 @@ sunbeam_singleton_implementation(SunbeamDBService)
         }
     }
     
-    va_end(args);
     return array;
 }
 
