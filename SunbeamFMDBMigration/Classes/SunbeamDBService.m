@@ -209,11 +209,13 @@ sunbeam_singleton_implementation(SunbeamDBService)
     __block BOOL result = NO;
     
     if (self.useDatabaseQueue) {
+        __block va_list* argsBlock = &args;
+        
         [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-            result = [db executeUpdate:sql withVAList:args];
+            result = [db executeUpdate:sql withVAList:argsBlock];
             if (!result) {
                 *rollback = YES;
-                return ;
+                return;
             }
         }];
     } else {
@@ -246,9 +248,11 @@ sunbeam_singleton_implementation(SunbeamDBService)
     __block NSMutableArray* array = [NSMutableArray array];
     
     if (self.useDatabaseQueue) {
+        __block va_list* argsBlock = &args;
+        
         [self.databaseQueue inDatabase:^(FMDatabase *db) {
             
-            FMResultSet* result = [self.database executeQuery:sql withVAList:args];
+            FMResultSet* result = [self.database executeQuery:sql withVAList:argsBlock];
             
             while ([result next]) {
                 NSMutableDictionary *dic = [NSMutableDictionary dictionary];
