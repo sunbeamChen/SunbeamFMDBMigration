@@ -212,7 +212,11 @@ sunbeam_singleton_implementation(SunbeamDBService)
     
     while (numberOfArgs--) {
         id object = va_arg(args, id);
-        [list addObject:object];
+        if (object) {
+            [list addObject:object];
+        } else {
+            [list addObject:@""];
+        }
     }
     
     __block BOOL result = NO;
@@ -259,7 +263,11 @@ sunbeam_singleton_implementation(SunbeamDBService)
     
     while (numberOfArgs--) {
         id object = va_arg(args, id);
-        [list addObject:object];
+        if (object) {
+            [list addObject:object];
+        } else {
+            [list addObject:@""];
+        }
     }
     
     __block NSMutableArray* array = [NSMutableArray array];
