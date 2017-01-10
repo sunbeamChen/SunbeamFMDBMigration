@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		333698BB1E24E16000CD48F0 /* SunbeamDBMigrationSQL.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 333698BA1E24E16000CD48F0 /* SunbeamDBMigrationSQL.bundle */; };
 		4A02E8DAC85BFF21D0C6D9B7 /* Pods_SunbeamFMDBMigration_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C658928B3137D3813B03BEE4 /* Pods_SunbeamFMDBMigration_Example.framework */; };
 		54EAD78AD4CFD2D35CABDD8A /* Pods_SunbeamFMDBMigration_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC1F88023E1A74A9C1E0BCE /* Pods_SunbeamFMDBMigration_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		19F3D97D6EEA42DA890AD0C9 /* Pods-SunbeamFMDBMigration_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunbeamFMDBMigration_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SunbeamFMDBMigration_Example/Pods-SunbeamFMDBMigration_Example.release.xcconfig"; sourceTree = "<group>"; };
 		20005BA8C27839080BC850C6 /* Pods-SunbeamFMDBMigration_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunbeamFMDBMigration_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SunbeamFMDBMigration_Example/Pods-SunbeamFMDBMigration_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		333698BA1E24E16000CD48F0 /* SunbeamDBMigrationSQL.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SunbeamDBMigrationSQL.bundle; sourceTree = "<group>"; };
 		4CC1F88023E1A74A9C1E0BCE /* Pods_SunbeamFMDBMigration_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SunbeamFMDBMigration_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* SunbeamFMDBMigration_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunbeamFMDBMigration_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -130,12 +132,11 @@
 		6003F593195388D20070C39A /* Example for SunbeamFMDBMigration */ = {
 			isa = PBXGroup;
 			children = (
+				333698BA1E24E16000CD48F0 /* SunbeamDBMigrationSQL.bundle */,
 				6003F59C195388D20070C39A /* SunbeamAppDelegate.h */,
 				6003F59D195388D20070C39A /* SunbeamAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* SunbeamViewController.h */,
 				6003F5A6195388D20070C39A /* SunbeamViewController.m */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for SunbeamFMDBMigration";
@@ -145,6 +146,8 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F595195388D20070C39A /* SunbeamFMDBMigration-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -247,6 +250,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = sunbeamChen;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 26HR2KLKEK;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -279,6 +285,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				333698BB1E24E16000CD48F0 /* SunbeamDBMigrationSQL.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 26HR2KLKEK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SunbeamFMDBMigration/SunbeamFMDBMigration-Prefix.pch";
 				INFOPLIST_FILE = "SunbeamFMDBMigration/SunbeamFMDBMigration-Info.plist";
@@ -529,6 +537,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 26HR2KLKEK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SunbeamFMDBMigration/SunbeamFMDBMigration-Prefix.pch";
 				INFOPLIST_FILE = "SunbeamFMDBMigration/SunbeamFMDBMigration-Info.plist";

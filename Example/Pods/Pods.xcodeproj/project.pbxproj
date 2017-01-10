@@ -1,940 +1,2477 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		001F7D63B37D24A839D7E49FF3D179BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B9008DA230F7311D67B7F84A21CB6 /* Foundation.framework */; };
-		04835D4F5FA0ECC4F6D42F7F07284645 /* SunbeamFMDBMigration-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 78B3C4994A092ABFAF5B2F042F0F7EEF /* SunbeamFMDBMigration-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0D619A711F71058C9238B17E9AF48AFC /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E784FE473275B6CE21E9FC8AE454E /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		183A0D8AF38E0EE20E47F1FEF9B37327 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = F1F546D17BEE96A3AC80F5733BACB23C /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		34624AC4D1D58039C5B2DF56478EB230 /* Pods-SunbeamFMDBMigration_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EAC34244E118015F8DCFCB7028C76FB /* Pods-SunbeamFMDBMigration_Example-dummy.m */; };
-		362F1204A8EAAE396289155066490509 /* Pods-SunbeamFMDBMigration_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C32906568BDF1E54FEF706BCEC7761FC /* Pods-SunbeamFMDBMigration_Tests-dummy.m */; };
-		3ECC23FFAE400A6B2658AAF2990D83BE /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 73E08DD3F409CC910BDF9AAC0E1BEB35 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F61BE79D4B46C119C136EDE960CE78C /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CFEEF64A76609C0E88017B38B7E12DA /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		461CA948889F73EC60BC325EC1C180DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B9008DA230F7311D67B7F84A21CB6 /* Foundation.framework */; };
-		4B850E42EE56591DCF2B4DC0AE1F4D14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B9008DA230F7311D67B7F84A21CB6 /* Foundation.framework */; };
-		4FB1B367C5CCFC0703BBCFC532064354 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0078E8D5A781B47986A348FBCC779CF6 /* FMDB.framework */; };
-		51B7812FA15ABDBD86AD748A62719895 /* SunbeamDBService.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D1BE947A0F2251EBF4C784F4D5C19AA /* SunbeamDBService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C63E2BEBE2BC08BD46F6A91D0A08143 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 01C9B19641620A44266703CB7F104828 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		74695802583BDB0C0818AC1B97F63815 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C4BBD76359D36C69E5804A290D1C5ED2 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7C818AE74E830311E61FF1A7E42D0713 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF62A1F971FFFC84C36F474CF296297 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		8B716EF909EAB39860857EC8E9E67EF5 /* Pods-SunbeamFMDBMigration_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AE2ED2CD4905220BA8CA73B1A0ADA74 /* Pods-SunbeamFMDBMigration_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8FD0B67D285B107A1CE37F2F4301CF24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9B9008DA230F7311D67B7F84A21CB6 /* Foundation.framework */; };
-		9CD53D5079749B7A844E8046982C899D /* SunbeamFMDBMigration.h in Headers */ = {isa = PBXBuildFile; fileRef = 891A9D178A560E6A5DCB9FB95E7E56B7 /* SunbeamFMDBMigration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A10E1F127AE74F04C048128E3576C567 /* SunbeamDBMigrationService.m in Sources */ = {isa = PBXBuildFile; fileRef = A18DB553419F2E74C6D38DE0C77EE7B4 /* SunbeamDBMigrationService.m */; };
-		A1E5F963AB87F7A48720E27BE6FF3833 /* SunbeamDBMigrationService.h in Headers */ = {isa = PBXBuildFile; fileRef = AAB323014C334452F0C74DE80CBE32BD /* SunbeamDBMigrationService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AD01D434D8D120A3767270766AD30797 /* FMDB-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 774678108D22A09213789D973E2051AC /* FMDB-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AE84180C4A5B633979C04FFD1F8C2D59 /* SunbeamDBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 433B797E2C5AF7AA6B1C835467D396A1 /* SunbeamDBService.m */; };
-		B54426066B37EA50AA92E180C6BC6162 /* SunbeamSingletonService.h in Headers */ = {isa = PBXBuildFile; fileRef = 281D48596558DA39C413F3A9A9FE09E5 /* SunbeamSingletonService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BA88E88A631D6BD023521B7206CE6C25 /* FMDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5085BA3C5279C337F6D921E5CAFB1FC /* FMDB-dummy.m */; };
-		C8FC0929A42C36174794FE1ADFD620E3 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D2F8382360C935E0097F1CB2E26820 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E330886E0E7C450E9669C4BD025D9ABD /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 351F8E59854BCD39585AB8A055AC2F52 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EAA9B9275ACA1E897809882075F22970 /* SunbeamFMDBMigration-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD77D580E150A6139AC891818D6F1D9 /* SunbeamFMDBMigration-dummy.m */; };
-		F0895B2A83F948153E1E5EA38A230B66 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B97A597AFE8B5A90EDFF8560393C46B /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F5A0569CB70F6F37A16E32EE210D0C66 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = ED48C0E1AA39302CCDD55032B7544B36 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F92AF24E62247DB9CFC0C0D8D00512BD /* Pods-SunbeamFMDBMigration_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C4435170C82FEE3A889E20F6BE776AE5 /* Pods-SunbeamFMDBMigration_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		9E7AD1EC9891BFC6B9CECF7E47BA0550 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5046BE6624BE84FDDA0EE68EAB665507;
-			remoteInfo = SunbeamFMDBMigration;
-		};
-		D50249AC87C63B413626153A99AB8224 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 23CF27B2BA6AC7125EFFEDA8C5AA819F;
-			remoteInfo = FMDB;
-		};
-		F510D952171AEDBCA7AE761645785178 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 23CF27B2BA6AC7125EFFEDA8C5AA819F;
-			remoteInfo = FMDB;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		0078E8D5A781B47986A348FBCC779CF6 /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0117DF7102FA29A4A491CE461DBED750 /* Pods-SunbeamFMDBMigration_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SunbeamFMDBMigration_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		01C9B19641620A44266703CB7F104828 /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
-		1F3E784FE473275B6CE21E9FC8AE454E /* FMDatabaseQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
-		281D48596558DA39C413F3A9A9FE09E5 /* SunbeamSingletonService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SunbeamSingletonService.h; sourceTree = "<group>"; };
-		28A0AB50FAD49C82A73B01D262EDAA4F /* Pods-SunbeamFMDBMigration_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SunbeamFMDBMigration_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		2DC49B2CBBA9BB4E74FD7CFEF4C858ED /* Pods_SunbeamFMDBMigration_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SunbeamFMDBMigration_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EAC34244E118015F8DCFCB7028C76FB /* Pods-SunbeamFMDBMigration_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SunbeamFMDBMigration_Example-dummy.m"; sourceTree = "<group>"; };
-		351F8E59854BCD39585AB8A055AC2F52 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
-		3D1BE947A0F2251EBF4C784F4D5C19AA /* SunbeamDBService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SunbeamDBService.h; sourceTree = "<group>"; };
-		400CD362AABE8438FB106825D6A954BB /* Pods-SunbeamFMDBMigration_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SunbeamFMDBMigration_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		433B797E2C5AF7AA6B1C835467D396A1 /* SunbeamDBService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SunbeamDBService.m; sourceTree = "<group>"; };
-		4B97A597AFE8B5A90EDFF8560393C46B /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		57B7719F649F448C1E5D0DE8A5F20D4B /* SunbeamFMDBMigration.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SunbeamFMDBMigration.modulemap; sourceTree = "<group>"; };
-		5C9B9008DA230F7311D67B7F84A21CB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6CFEEF64A76609C0E88017B38B7E12DA /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
-		73E08DD3F409CC910BDF9AAC0E1BEB35 /* FMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = src/fmdb/FMDB.h; sourceTree = "<group>"; };
-		774678108D22A09213789D973E2051AC /* FMDB-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-umbrella.h"; sourceTree = "<group>"; };
-		78B3C4994A092ABFAF5B2F042F0F7EEF /* SunbeamFMDBMigration-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SunbeamFMDBMigration-umbrella.h"; sourceTree = "<group>"; };
-		7AE2ED2CD4905220BA8CA73B1A0ADA74 /* Pods-SunbeamFMDBMigration_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SunbeamFMDBMigration_Example-umbrella.h"; sourceTree = "<group>"; };
-		85EA8B85E6B0054D3773749D45BADE28 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8761F79E0ECBABAD2064EFF4DBCBF277 /* SunbeamFMDBMigration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SunbeamFMDBMigration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8910449430516FDF4253B8963CD9250C /* Pods-SunbeamFMDBMigration_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SunbeamFMDBMigration_Tests.modulemap"; sourceTree = "<group>"; };
-		891A9D178A560E6A5DCB9FB95E7E56B7 /* SunbeamFMDBMigration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SunbeamFMDBMigration.h; sourceTree = "<group>"; };
-		8DF62A1F971FFFC84C36F474CF296297 /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
-		9199808A6BAB6AF3E570472E8ECE9AD4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9343841D7992BD43DE7E7A1F30E7B8C5 /* Pods_SunbeamFMDBMigration_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SunbeamFMDBMigration_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		977E1A9F2B932AE971BEFDB96E6F5C89 /* Pods-SunbeamFMDBMigration_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SunbeamFMDBMigration_Example.release.xcconfig"; sourceTree = "<group>"; };
-		9BD77D580E150A6139AC891818D6F1D9 /* SunbeamFMDBMigration-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SunbeamFMDBMigration-dummy.m"; sourceTree = "<group>"; };
-		9D2C009B8BBFA6118EF1C9553EA945A3 /* Pods-SunbeamFMDBMigration_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SunbeamFMDBMigration_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A0D8279090E34D6E6CF4BA934C003853 /* Pods-SunbeamFMDBMigration_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SunbeamFMDBMigration_Example-resources.sh"; sourceTree = "<group>"; };
-		A18DB553419F2E74C6D38DE0C77EE7B4 /* SunbeamDBMigrationService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SunbeamDBMigrationService.m; sourceTree = "<group>"; };
-		A2D2F8382360C935E0097F1CB2E26820 /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
-		A82124697E95B25065BF5AC6D962526C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAB323014C334452F0C74DE80CBE32BD /* SunbeamDBMigrationService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SunbeamDBMigrationService.h; sourceTree = "<group>"; };
-		AECC94D8201396A5DA452B831A5B5F7F /* SunbeamFMDBMigration.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SunbeamFMDBMigration.xcconfig; sourceTree = "<group>"; };
-		B01C3BE5B8859F09F68C410FB025FB11 /* Pods-SunbeamFMDBMigration_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SunbeamFMDBMigration_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B22114E7098BF8E52F899CCE1A91E6FE /* FMDB.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FMDB.xcconfig; sourceTree = "<group>"; };
-		B2616E701A8D2D4BD8CF294C0531CB95 /* Pods-SunbeamFMDBMigration_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SunbeamFMDBMigration_Tests-resources.sh"; sourceTree = "<group>"; };
-		B97CC7F7ED98D85D31663DDFAF034BBC /* FMDB.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FMDB.modulemap; sourceTree = "<group>"; };
-		C32906568BDF1E54FEF706BCEC7761FC /* Pods-SunbeamFMDBMigration_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SunbeamFMDBMigration_Tests-dummy.m"; sourceTree = "<group>"; };
-		C4435170C82FEE3A889E20F6BE776AE5 /* Pods-SunbeamFMDBMigration_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SunbeamFMDBMigration_Tests-umbrella.h"; sourceTree = "<group>"; };
-		C4BBD76359D36C69E5804A290D1C5ED2 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		C80DA57F8CD6FA6C1FE9516FC1FCBB41 /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
-		CA4ABB34898F80A44CDAEB3302F6E3C8 /* Pods-SunbeamFMDBMigration_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SunbeamFMDBMigration_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		CD6D9DB44F66AA1C3712C083659E6DCB /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDB416058D0E4FE21BAEF2644312970C /* Pods-SunbeamFMDBMigration_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SunbeamFMDBMigration_Example.modulemap"; sourceTree = "<group>"; };
-		D5085BA3C5279C337F6D921E5CAFB1FC /* FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMDB-dummy.m"; sourceTree = "<group>"; };
-		DB90F5A1E5710393373FC45D13DF9686 /* Pods-SunbeamFMDBMigration_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SunbeamFMDBMigration_Example-frameworks.sh"; sourceTree = "<group>"; };
-		DCDEBC2185289180292CCD58DE037FB7 /* Pods-SunbeamFMDBMigration_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SunbeamFMDBMigration_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		E14B84D9189AA7A8DE3D7CC4432DAF5C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA9C50D549DC7EFAFBEFEC1B492FCC9B /* Pods-SunbeamFMDBMigration_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SunbeamFMDBMigration_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		ED48C0E1AA39302CCDD55032B7544B36 /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
-		F1F546D17BEE96A3AC80F5733BACB23C /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
-		FC585D7C3E0E8EBEF9C1F49200DFDD2B /* SunbeamFMDBMigration-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SunbeamFMDBMigration-prefix.pch"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		07163A0956D3012D6BF74E0B0E4CE17D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8FD0B67D285B107A1CE37F2F4301CF24 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		12F19D569E55A0A71BB953E8E0F2CA50 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				001F7D63B37D24A839D7E49FF3D179BC /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		37080B0516A5F4A2D622CDB7200588D3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B850E42EE56591DCF2B4DC0AE1F4D14 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D513AAC337A68F6035ABA821E57DB0CA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4FB1B367C5CCFC0703BBCFC532064354 /* FMDB.framework in Frameworks */,
-				461CA948889F73EC60BC325EC1C180DC /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		068DCDB62BE84A2B55D025AFFF81C403 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				5C9B9008DA230F7311D67B7F84A21CB6 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		147BED1894E276722E05DCF33333CD14 /* SunbeamFMDBMigration */ = {
-			isa = PBXGroup;
-			children = (
-				37045C9A0675D2D3B16318D3A4BBE426 /* Classes */,
-			);
-			path = SunbeamFMDBMigration;
-			sourceTree = "<group>";
-		};
-		2E8A70666402923F61614F521EE0CA29 /* FMDB */ = {
-			isa = PBXGroup;
-			children = (
-				F6DE655E75ADFE1AA964C216FFC0DF35 /* standard */,
-				B7ADE86BD1C1E36B1DE5372BFA4CDC0F /* Support Files */,
-			);
-			path = FMDB;
-			sourceTree = "<group>";
-		};
-		2ED35A22785642B54324C6682C4CD62A /* Pods-SunbeamFMDBMigration_Example */ = {
-			isa = PBXGroup;
-			children = (
-				9199808A6BAB6AF3E570472E8ECE9AD4 /* Info.plist */,
-				CDB416058D0E4FE21BAEF2644312970C /* Pods-SunbeamFMDBMigration_Example.modulemap */,
-				9D2C009B8BBFA6118EF1C9553EA945A3 /* Pods-SunbeamFMDBMigration_Example-acknowledgements.markdown */,
-				CA4ABB34898F80A44CDAEB3302F6E3C8 /* Pods-SunbeamFMDBMigration_Example-acknowledgements.plist */,
-				2EAC34244E118015F8DCFCB7028C76FB /* Pods-SunbeamFMDBMigration_Example-dummy.m */,
-				DB90F5A1E5710393373FC45D13DF9686 /* Pods-SunbeamFMDBMigration_Example-frameworks.sh */,
-				A0D8279090E34D6E6CF4BA934C003853 /* Pods-SunbeamFMDBMigration_Example-resources.sh */,
-				7AE2ED2CD4905220BA8CA73B1A0ADA74 /* Pods-SunbeamFMDBMigration_Example-umbrella.h */,
-				B01C3BE5B8859F09F68C410FB025FB11 /* Pods-SunbeamFMDBMigration_Example.debug.xcconfig */,
-				977E1A9F2B932AE971BEFDB96E6F5C89 /* Pods-SunbeamFMDBMigration_Example.release.xcconfig */,
-			);
-			name = "Pods-SunbeamFMDBMigration_Example";
-			path = "Target Support Files/Pods-SunbeamFMDBMigration_Example";
-			sourceTree = "<group>";
-		};
-		37045C9A0675D2D3B16318D3A4BBE426 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				AAB323014C334452F0C74DE80CBE32BD /* SunbeamDBMigrationService.h */,
-				A18DB553419F2E74C6D38DE0C77EE7B4 /* SunbeamDBMigrationService.m */,
-				3D1BE947A0F2251EBF4C784F4D5C19AA /* SunbeamDBService.h */,
-				433B797E2C5AF7AA6B1C835467D396A1 /* SunbeamDBService.m */,
-				891A9D178A560E6A5DCB9FB95E7E56B7 /* SunbeamFMDBMigration.h */,
-				281D48596558DA39C413F3A9A9FE09E5 /* SunbeamSingletonService.h */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		68B91EE00C057295F0B8FE411552013D /* SunbeamFMDBMigration */ = {
-			isa = PBXGroup;
-			children = (
-				147BED1894E276722E05DCF33333CD14 /* SunbeamFMDBMigration */,
-				D53537A7007945D623D6323F8A9FB6B4 /* Support Files */,
-			);
-			name = SunbeamFMDBMigration;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		7D6BA5A1A315EAD3003B1700EA081C55 /* Pods-SunbeamFMDBMigration_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				85EA8B85E6B0054D3773749D45BADE28 /* Info.plist */,
-				8910449430516FDF4253B8963CD9250C /* Pods-SunbeamFMDBMigration_Tests.modulemap */,
-				400CD362AABE8438FB106825D6A954BB /* Pods-SunbeamFMDBMigration_Tests-acknowledgements.markdown */,
-				0117DF7102FA29A4A491CE461DBED750 /* Pods-SunbeamFMDBMigration_Tests-acknowledgements.plist */,
-				C32906568BDF1E54FEF706BCEC7761FC /* Pods-SunbeamFMDBMigration_Tests-dummy.m */,
-				DCDEBC2185289180292CCD58DE037FB7 /* Pods-SunbeamFMDBMigration_Tests-frameworks.sh */,
-				B2616E701A8D2D4BD8CF294C0531CB95 /* Pods-SunbeamFMDBMigration_Tests-resources.sh */,
-				C4435170C82FEE3A889E20F6BE776AE5 /* Pods-SunbeamFMDBMigration_Tests-umbrella.h */,
-				EA9C50D549DC7EFAFBEFEC1B492FCC9B /* Pods-SunbeamFMDBMigration_Tests.debug.xcconfig */,
-				28A0AB50FAD49C82A73B01D262EDAA4F /* Pods-SunbeamFMDBMigration_Tests.release.xcconfig */,
-			);
-			name = "Pods-SunbeamFMDBMigration_Tests";
-			path = "Target Support Files/Pods-SunbeamFMDBMigration_Tests";
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				A0A4CBE14EC7A3951EE03922FFBBBF5F /* Development Pods */,
-				D2304513832E75413DFDFE967D300314 /* Frameworks */,
-				BFB8C92E749ED180124155E2270474D2 /* Pods */,
-				B286543CA20D1B2149B62E1F5AE500AB /* Products */,
-				A33E89FFACFEFB4CE762AFA141DD9025 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		A0A4CBE14EC7A3951EE03922FFBBBF5F /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				68B91EE00C057295F0B8FE411552013D /* SunbeamFMDBMigration */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		A33E89FFACFEFB4CE762AFA141DD9025 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2ED35A22785642B54324C6682C4CD62A /* Pods-SunbeamFMDBMigration_Example */,
-				7D6BA5A1A315EAD3003B1700EA081C55 /* Pods-SunbeamFMDBMigration_Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		B286543CA20D1B2149B62E1F5AE500AB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CD6D9DB44F66AA1C3712C083659E6DCB /* FMDB.framework */,
-				2DC49B2CBBA9BB4E74FD7CFEF4C858ED /* Pods_SunbeamFMDBMigration_Example.framework */,
-				9343841D7992BD43DE7E7A1F30E7B8C5 /* Pods_SunbeamFMDBMigration_Tests.framework */,
-				8761F79E0ECBABAD2064EFF4DBCBF277 /* SunbeamFMDBMigration.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B7ADE86BD1C1E36B1DE5372BFA4CDC0F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B97CC7F7ED98D85D31663DDFAF034BBC /* FMDB.modulemap */,
-				B22114E7098BF8E52F899CCE1A91E6FE /* FMDB.xcconfig */,
-				D5085BA3C5279C337F6D921E5CAFB1FC /* FMDB-dummy.m */,
-				C80DA57F8CD6FA6C1FE9516FC1FCBB41 /* FMDB-prefix.pch */,
-				774678108D22A09213789D973E2051AC /* FMDB-umbrella.h */,
-				A82124697E95B25065BF5AC6D962526C /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/FMDB";
-			sourceTree = "<group>";
-		};
-		BFB8C92E749ED180124155E2270474D2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2E8A70666402923F61614F521EE0CA29 /* FMDB */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		D2304513832E75413DFDFE967D300314 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0078E8D5A781B47986A348FBCC779CF6 /* FMDB.framework */,
-				068DCDB62BE84A2B55D025AFFF81C403 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D53537A7007945D623D6323F8A9FB6B4 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E14B84D9189AA7A8DE3D7CC4432DAF5C /* Info.plist */,
-				57B7719F649F448C1E5D0DE8A5F20D4B /* SunbeamFMDBMigration.modulemap */,
-				AECC94D8201396A5DA452B831A5B5F7F /* SunbeamFMDBMigration.xcconfig */,
-				9BD77D580E150A6139AC891818D6F1D9 /* SunbeamFMDBMigration-dummy.m */,
-				FC585D7C3E0E8EBEF9C1F49200DFDD2B /* SunbeamFMDBMigration-prefix.pch */,
-				78B3C4994A092ABFAF5B2F042F0F7EEF /* SunbeamFMDBMigration-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/SunbeamFMDBMigration";
-			sourceTree = "<group>";
-		};
-		F6DE655E75ADFE1AA964C216FFC0DF35 /* standard */ = {
-			isa = PBXGroup;
-			children = (
-				6CFEEF64A76609C0E88017B38B7E12DA /* FMDatabase.h */,
-				ED48C0E1AA39302CCDD55032B7544B36 /* FMDatabase.m */,
-				C4BBD76359D36C69E5804A290D1C5ED2 /* FMDatabaseAdditions.h */,
-				4B97A597AFE8B5A90EDFF8560393C46B /* FMDatabaseAdditions.m */,
-				01C9B19641620A44266703CB7F104828 /* FMDatabasePool.h */,
-				A2D2F8382360C935E0097F1CB2E26820 /* FMDatabasePool.m */,
-				351F8E59854BCD39585AB8A055AC2F52 /* FMDatabaseQueue.h */,
-				1F3E784FE473275B6CE21E9FC8AE454E /* FMDatabaseQueue.m */,
-				73E08DD3F409CC910BDF9AAC0E1BEB35 /* FMDB.h */,
-				F1F546D17BEE96A3AC80F5733BACB23C /* FMResultSet.h */,
-				8DF62A1F971FFFC84C36F474CF296297 /* FMResultSet.m */,
-			);
-			name = standard;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		1C310E587AAD4C0620F5D838E6070A59 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F92AF24E62247DB9CFC0C0D8D00512BD /* Pods-SunbeamFMDBMigration_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8BE2233B0580CB110455F3269A239C98 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A1E5F963AB87F7A48720E27BE6FF3833 /* SunbeamDBMigrationService.h in Headers */,
-				51B7812FA15ABDBD86AD748A62719895 /* SunbeamDBService.h in Headers */,
-				04835D4F5FA0ECC4F6D42F7F07284645 /* SunbeamFMDBMigration-umbrella.h in Headers */,
-				9CD53D5079749B7A844E8046982C899D /* SunbeamFMDBMigration.h in Headers */,
-				B54426066B37EA50AA92E180C6BC6162 /* SunbeamSingletonService.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A8A1B98F16F13F2F72C375E44D51EE8A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F61BE79D4B46C119C136EDE960CE78C /* FMDatabase.h in Headers */,
-				74695802583BDB0C0818AC1B97F63815 /* FMDatabaseAdditions.h in Headers */,
-				6C63E2BEBE2BC08BD46F6A91D0A08143 /* FMDatabasePool.h in Headers */,
-				E330886E0E7C450E9669C4BD025D9ABD /* FMDatabaseQueue.h in Headers */,
-				AD01D434D8D120A3767270766AD30797 /* FMDB-umbrella.h in Headers */,
-				3ECC23FFAE400A6B2658AAF2990D83BE /* FMDB.h in Headers */,
-				183A0D8AF38E0EE20E47F1FEF9B37327 /* FMResultSet.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B9C86879037EB7E1AE667EA4A3BC2419 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8B716EF909EAB39860857EC8E9E67EF5 /* Pods-SunbeamFMDBMigration_Example-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		23CF27B2BA6AC7125EFFEDA8C5AA819F /* FMDB */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E130BB4A68655453C9FDC5692FA44094 /* Build configuration list for PBXNativeTarget "FMDB" */;
-			buildPhases = (
-				6F019F4B57C689E3B448935B617CFF76 /* Sources */,
-				07163A0956D3012D6BF74E0B0E4CE17D /* Frameworks */,
-				A8A1B98F16F13F2F72C375E44D51EE8A /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FMDB;
-			productName = FMDB;
-			productReference = CD6D9DB44F66AA1C3712C083659E6DCB /* FMDB.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		5046BE6624BE84FDDA0EE68EAB665507 /* SunbeamFMDBMigration */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5DA505FF3BEFD65CB79CD6393E54608D /* Build configuration list for PBXNativeTarget "SunbeamFMDBMigration" */;
-			buildPhases = (
-				93EF835AF71D4172CAF1D404C14A4536 /* Sources */,
-				D513AAC337A68F6035ABA821E57DB0CA /* Frameworks */,
-				8BE2233B0580CB110455F3269A239C98 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C4D67AB6C87A971877E5CAD192592D82 /* PBXTargetDependency */,
-			);
-			name = SunbeamFMDBMigration;
-			productName = SunbeamFMDBMigration;
-			productReference = 8761F79E0ECBABAD2064EFF4DBCBF277 /* SunbeamFMDBMigration.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		67BAC3420E63FC74F2A8C4033203FFE4 /* Pods-SunbeamFMDBMigration_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 01F595FD4054A484C20AD5E59017BDF4 /* Build configuration list for PBXNativeTarget "Pods-SunbeamFMDBMigration_Tests" */;
-			buildPhases = (
-				719554A1E5A4E6DB08869A1639A6D5E0 /* Sources */,
-				12F19D569E55A0A71BB953E8E0F2CA50 /* Frameworks */,
-				1C310E587AAD4C0620F5D838E6070A59 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-SunbeamFMDBMigration_Tests";
-			productName = "Pods-SunbeamFMDBMigration_Tests";
-			productReference = 9343841D7992BD43DE7E7A1F30E7B8C5 /* Pods_SunbeamFMDBMigration_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		BF70D42C628C9B1E3B7142FD9373AECD /* Pods-SunbeamFMDBMigration_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7DC0027F0ED906626FE243722BA9A7FB /* Build configuration list for PBXNativeTarget "Pods-SunbeamFMDBMigration_Example" */;
-			buildPhases = (
-				0006B296C3202139FDC7C07D0A7CA3CB /* Sources */,
-				37080B0516A5F4A2D622CDB7200588D3 /* Frameworks */,
-				B9C86879037EB7E1AE667EA4A3BC2419 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D4C3790A41D37F372B77473B1ABAE3FC /* PBXTargetDependency */,
-				D18884CFF007995CD362AF9D77976570 /* PBXTargetDependency */,
-			);
-			name = "Pods-SunbeamFMDBMigration_Example";
-			productName = "Pods-SunbeamFMDBMigration_Example";
-			productReference = 2DC49B2CBBA9BB4E74FD7CFEF4C858ED /* Pods_SunbeamFMDBMigration_Example.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
-			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = B286543CA20D1B2149B62E1F5AE500AB /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				23CF27B2BA6AC7125EFFEDA8C5AA819F /* FMDB */,
-				BF70D42C628C9B1E3B7142FD9373AECD /* Pods-SunbeamFMDBMigration_Example */,
-				67BAC3420E63FC74F2A8C4033203FFE4 /* Pods-SunbeamFMDBMigration_Tests */,
-				5046BE6624BE84FDDA0EE68EAB665507 /* SunbeamFMDBMigration */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXSourcesBuildPhase section */
-		0006B296C3202139FDC7C07D0A7CA3CB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				34624AC4D1D58039C5B2DF56478EB230 /* Pods-SunbeamFMDBMigration_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6F019F4B57C689E3B448935B617CFF76 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F5A0569CB70F6F37A16E32EE210D0C66 /* FMDatabase.m in Sources */,
-				F0895B2A83F948153E1E5EA38A230B66 /* FMDatabaseAdditions.m in Sources */,
-				C8FC0929A42C36174794FE1ADFD620E3 /* FMDatabasePool.m in Sources */,
-				0D619A711F71058C9238B17E9AF48AFC /* FMDatabaseQueue.m in Sources */,
-				BA88E88A631D6BD023521B7206CE6C25 /* FMDB-dummy.m in Sources */,
-				7C818AE74E830311E61FF1A7E42D0713 /* FMResultSet.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		719554A1E5A4E6DB08869A1639A6D5E0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				362F1204A8EAAE396289155066490509 /* Pods-SunbeamFMDBMigration_Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		93EF835AF71D4172CAF1D404C14A4536 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A10E1F127AE74F04C048128E3576C567 /* SunbeamDBMigrationService.m in Sources */,
-				AE84180C4A5B633979C04FFD1F8C2D59 /* SunbeamDBService.m in Sources */,
-				EAA9B9275ACA1E897809882075F22970 /* SunbeamFMDBMigration-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C4D67AB6C87A971877E5CAD192592D82 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FMDB;
-			target = 23CF27B2BA6AC7125EFFEDA8C5AA819F /* FMDB */;
-			targetProxy = F510D952171AEDBCA7AE761645785178 /* PBXContainerItemProxy */;
-		};
-		D18884CFF007995CD362AF9D77976570 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SunbeamFMDBMigration;
-			target = 5046BE6624BE84FDDA0EE68EAB665507 /* SunbeamFMDBMigration */;
-			targetProxy = 9E7AD1EC9891BFC6B9CECF7E47BA0550 /* PBXContainerItemProxy */;
-		};
-		D4C3790A41D37F372B77473B1ABAE3FC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FMDB;
-			target = 23CF27B2BA6AC7125EFFEDA8C5AA819F /* FMDB */;
-			targetProxy = D50249AC87C63B413626153A99AB8224 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		0AAE57B80FB7F3D7E7E71454035E2B0C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B01C3BE5B8859F09F68C410FB025FB11 /* Pods-SunbeamFMDBMigration_Example.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SunbeamFMDBMigration_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SunbeamFMDBMigration_Example/Pods-SunbeamFMDBMigration_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SunbeamFMDBMigration_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		11A22FDEE11AB48CB6F5CD7D379CCE33 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AECC94D8201396A5DA452B831A5B5F7F /* SunbeamFMDBMigration.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SunbeamFMDBMigration/SunbeamFMDBMigration-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SunbeamFMDBMigration/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SunbeamFMDBMigration/SunbeamFMDBMigration.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SunbeamFMDBMigration;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3606871B814C53A835D7AEF48F29747B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B22114E7098BF8E52F899CCE1A91E6FE /* FMDB.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FMDB/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FMDB/FMDB.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = FMDB;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		5619B880BCDC5D5E39F35255934A1F9A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B22114E7098BF8E52F899CCE1A91E6FE /* FMDB.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FMDB/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FMDB/FMDB.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = FMDB;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7844274D35D50A620E1D12E0442C03C0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28A0AB50FAD49C82A73B01D262EDAA4F /* Pods-SunbeamFMDBMigration_Tests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SunbeamFMDBMigration_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SunbeamFMDBMigration_Tests/Pods-SunbeamFMDBMigration_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SunbeamFMDBMigration_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		900B07FB4C6BD251E91A2E7E7BACDD08 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 977E1A9F2B932AE971BEFDB96E6F5C89 /* Pods-SunbeamFMDBMigration_Example.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SunbeamFMDBMigration_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SunbeamFMDBMigration_Example/Pods-SunbeamFMDBMigration_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SunbeamFMDBMigration_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_DEBUG=1",
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				ONLY_ACTIVE_ARCH = YES;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Debug;
-		};
-		E9BCF1BAB151F63BC26E8E2842B8C7AB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA9C50D549DC7EFAFBEFEC1B492FCC9B /* Pods-SunbeamFMDBMigration_Tests.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-SunbeamFMDBMigration_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SunbeamFMDBMigration_Tests/Pods-SunbeamFMDBMigration_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_SunbeamFMDBMigration_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F030D223AA255BC2D89318DCE9FAC057 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AECC94D8201396A5DA452B831A5B5F7F /* SunbeamFMDBMigration.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SunbeamFMDBMigration/SunbeamFMDBMigration-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SunbeamFMDBMigration/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SunbeamFMDBMigration/SunbeamFMDBMigration.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SunbeamFMDBMigration;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		01F595FD4054A484C20AD5E59017BDF4 /* Build configuration list for PBXNativeTarget "Pods-SunbeamFMDBMigration_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E9BCF1BAB151F63BC26E8E2842B8C7AB /* Debug */,
-				7844274D35D50A620E1D12E0442C03C0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */,
-				0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5DA505FF3BEFD65CB79CD6393E54608D /* Build configuration list for PBXNativeTarget "SunbeamFMDBMigration" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				11A22FDEE11AB48CB6F5CD7D379CCE33 /* Debug */,
-				F030D223AA255BC2D89318DCE9FAC057 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7DC0027F0ED906626FE243722BA9A7FB /* Build configuration list for PBXNativeTarget "Pods-SunbeamFMDBMigration_Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0AAE57B80FB7F3D7E7E71454035E2B0C /* Debug */,
-				900B07FB4C6BD251E91A2E7E7BACDD08 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E130BB4A68655453C9FDC5692FA44094 /* Build configuration list for PBXNativeTarget "FMDB" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5619B880BCDC5D5E39F35255934A1F9A /* Debug */,
-				3606871B814C53A835D7AEF48F29747B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0006B296C3202139FDC7C07D0A7CA3CB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>34624AC4D1D58039C5B2DF56478EB230</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>001F7D63B37D24A839D7E49FF3D179BC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5C9B9008DA230F7311D67B7F84A21CB6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0078E8D5A781B47986A348FBCC779CF6</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>FMDB.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>0117DF7102FA29A4A491CE461DBED750</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Tests-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0144AD2C6CA6C443F3CDB228146BDD93</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamDBService.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>01C9B19641620A44266703CB7F104828</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FMDatabasePool.h</string>
+			<key>path</key>
+			<string>src/fmdb/FMDatabasePool.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>01F595FD4054A484C20AD5E59017BDF4</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>E9BCF1BAB151F63BC26E8E2842B8C7AB</string>
+				<string>7844274D35D50A620E1D12E0442C03C0</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>02B690AC293C1845E2582F3FBD627554</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamDBMigrationService.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>068DCDB62BE84A2B55D025AFFF81C403</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5C9B9008DA230F7311D67B7F84A21CB6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>iOS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>07163A0956D3012D6BF74E0B0E4CE17D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8FD0B67D285B107A1CE37F2F4301CF24</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>084B049F551E64E48845305D44944540</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamDBService.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0AAE57B80FB7F3D7E7E71454035E2B0C</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>B01C3BE5B8859F09F68C410FB025FB11</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-SunbeamFMDBMigration_Example/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-SunbeamFMDBMigration_Example/Pods-SunbeamFMDBMigration_Example.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_SunbeamFMDBMigration_Example</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0ACDCBCB0B6796575F46FFA2F5410C6B</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>POD_CONFIGURATION_RELEASE=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>SYMROOT</key>
+				<string>${SRCROOT}/../build</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0C339D5C083348266AB4B05C14AED307</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamFMDBMigration.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0D619A711F71058C9238B17E9AF48AFC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1F3E784FE473275B6CE21E9FC8AE454E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>11A22FDEE11AB48CB6F5CD7D379CCE33</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>AECC94D8201396A5DA452B831A5B5F7F</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/SunbeamFMDBMigration/SunbeamFMDBMigration-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/SunbeamFMDBMigration/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/SunbeamFMDBMigration/SunbeamFMDBMigration.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>SunbeamFMDBMigration</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>12F19D569E55A0A71BB953E8E0F2CA50</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>001F7D63B37D24A839D7E49FF3D179BC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>183A0D8AF38E0EE20E47F1FEF9B37327</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F1F546D17BEE96A3AC80F5733BACB23C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>1C310E587AAD4C0620F5D838E6070A59</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F92AF24E62247DB9CFC0C0D8D00512BD</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1F3E784FE473275B6CE21E9FC8AE454E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>FMDatabaseQueue.m</string>
+			<key>path</key>
+			<string>src/fmdb/FMDatabaseQueue.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>23CF27B2BA6AC7125EFFEDA8C5AA819F</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>E130BB4A68655453C9FDC5692FA44094</string>
+			<key>buildPhases</key>
+			<array>
+				<string>6F019F4B57C689E3B448935B617CFF76</string>
+				<string>07163A0956D3012D6BF74E0B0E4CE17D</string>
+				<string>A8A1B98F16F13F2F72C375E44D51EE8A</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>FMDB</string>
+			<key>productName</key>
+			<string>FMDB</string>
+			<key>productReference</key>
+			<string>CD6D9DB44F66AA1C3712C083659E6DCB</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>241108D23C19B77434B618700449E75E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>45288DD5DF9F95A7426F2BF4374859EC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>SunbeamFMDBMigration</string>
+			<key>path</key>
+			<string>SunbeamFMDBMigration</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>28A0AB50FAD49C82A73B01D262EDAA4F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Tests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>D3E3D092A3FF7311A98E44BBA36FFD12</string>
+				<string>0ACDCBCB0B6796575F46FFA2F5410C6B</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>2DC49B2CBBA9BB4E74FD7CFEF4C858ED</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>Pods_SunbeamFMDBMigration_Example.framework</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Example.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>2E8A70666402923F61614F521EE0CA29</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F6DE655E75ADFE1AA964C216FFC0DF35</string>
+				<string>B7ADE86BD1C1E36B1DE5372BFA4CDC0F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>FMDB</string>
+			<key>path</key>
+			<string>FMDB</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2EAC34244E118015F8DCFCB7028C76FB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Example-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2ED35A22785642B54324C6682C4CD62A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>9199808A6BAB6AF3E570472E8ECE9AD4</string>
+				<string>CDB416058D0E4FE21BAEF2644312970C</string>
+				<string>9D2C009B8BBFA6118EF1C9553EA945A3</string>
+				<string>CA4ABB34898F80A44CDAEB3302F6E3C8</string>
+				<string>2EAC34244E118015F8DCFCB7028C76FB</string>
+				<string>DB90F5A1E5710393373FC45D13DF9686</string>
+				<string>A0D8279090E34D6E6CF4BA934C003853</string>
+				<string>7AE2ED2CD4905220BA8CA73B1A0ADA74</string>
+				<string>B01C3BE5B8859F09F68C410FB025FB11</string>
+				<string>977E1A9F2B932AE971BEFDB96E6F5C89</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods-SunbeamFMDBMigration_Example</string>
+			<key>path</key>
+			<string>Target Support Files/Pods-SunbeamFMDBMigration_Example</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>34624AC4D1D58039C5B2DF56478EB230</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2EAC34244E118015F8DCFCB7028C76FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>351F8E59854BCD39585AB8A055AC2F52</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FMDatabaseQueue.h</string>
+			<key>path</key>
+			<string>src/fmdb/FMDatabaseQueue.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3606871B814C53A835D7AEF48F29747B</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>B22114E7098BF8E52F899CCE1A91E6FE</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/FMDB/FMDB-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/FMDB/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/FMDB/FMDB.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>PRODUCT_NAME</key>
+				<string>FMDB</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>362F1204A8EAAE396289155066490509</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C32906568BDF1E54FEF706BCEC7761FC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>37080B0516A5F4A2D622CDB7200588D3</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4B850E42EE56591DCF2B4DC0AE1F4D14</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>3ECC23FFAE400A6B2658AAF2990D83BE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>73E08DD3F409CC910BDF9AAC0E1BEB35</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>3F61BE79D4B46C119C136EDE960CE78C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6CFEEF64A76609C0E88017B38B7E12DA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>400CD362AABE8438FB106825D6A954BB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Tests-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>45288DD5DF9F95A7426F2BF4374859EC</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>02B690AC293C1845E2582F3FBD627554</string>
+				<string>670EE85005D3472E9EA3249FCB55F90A</string>
+				<string>084B049F551E64E48845305D44944540</string>
+				<string>0144AD2C6CA6C443F3CDB228146BDD93</string>
+				<string>0C339D5C083348266AB4B05C14AED307</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Classes</string>
+			<key>path</key>
+			<string>Classes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>461CA948889F73EC60BC325EC1C180DC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5C9B9008DA230F7311D67B7F84A21CB6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B850E42EE56591DCF2B4DC0AE1F4D14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5C9B9008DA230F7311D67B7F84A21CB6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4B97A597AFE8B5A90EDFF8560393C46B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>FMDatabaseAdditions.m</string>
+			<key>path</key>
+			<string>src/fmdb/FMDatabaseAdditions.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4FB1B367C5CCFC0703BBCFC532064354</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0078E8D5A781B47986A348FBCC779CF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5046BE6624BE84FDDA0EE68EAB665507</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>5DA505FF3BEFD65CB79CD6393E54608D</string>
+			<key>buildPhases</key>
+			<array>
+				<string>93EF835AF71D4172CAF1D404C14A4536</string>
+				<string>D513AAC337A68F6035ABA821E57DB0CA</string>
+				<string>EBDD954895E7C2E7A516FC9738AD6AAC</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>C4D67AB6C87A971877E5CAD192592D82</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>SunbeamFMDBMigration</string>
+			<key>productName</key>
+			<string>SunbeamFMDBMigration</string>
+			<key>productReference</key>
+			<string>8761F79E0ECBABAD2064EFF4DBCBF277</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>5619B880BCDC5D5E39F35255934A1F9A</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>B22114E7098BF8E52F899CCE1A91E6FE</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/FMDB/FMDB-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/FMDB/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/FMDB/FMDB.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>FMDB</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>57B7719F649F448C1E5D0DE8A5F20D4B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>SunbeamFMDBMigration.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5C9B9008DA230F7311D67B7F84A21CB6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>5DA505FF3BEFD65CB79CD6393E54608D</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>11A22FDEE11AB48CB6F5CD7D379CCE33</string>
+				<string>F030D223AA255BC2D89318DCE9FAC057</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>670EE85005D3472E9EA3249FCB55F90A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamDBMigrationService.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>67BAC3420E63FC74F2A8C4033203FFE4</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>01F595FD4054A484C20AD5E59017BDF4</string>
+			<key>buildPhases</key>
+			<array>
+				<string>719554A1E5A4E6DB08869A1639A6D5E0</string>
+				<string>12F19D569E55A0A71BB953E8E0F2CA50</string>
+				<string>1C310E587AAD4C0620F5D838E6070A59</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-SunbeamFMDBMigration_Tests</string>
+			<key>productName</key>
+			<string>Pods-SunbeamFMDBMigration_Tests</string>
+			<key>productReference</key>
+			<string>9343841D7992BD43DE7E7A1F30E7B8C5</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>68B91EE00C057295F0B8FE411552013D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>241108D23C19B77434B618700449E75E</string>
+				<string>D53537A7007945D623D6323F8A9FB6B4</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>SunbeamFMDBMigration</string>
+			<key>path</key>
+			<string>../..</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6BE08C0D09F996E2821AF3673A9E9583</key>
+		<dict>
+			<key>fileRef</key>
+			<string>02B690AC293C1845E2582F3FBD627554</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>6C63E2BEBE2BC08BD46F6A91D0A08143</key>
+		<dict>
+			<key>fileRef</key>
+			<string>01C9B19641620A44266703CB7F104828</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>6CFEEF64A76609C0E88017B38B7E12DA</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FMDatabase.h</string>
+			<key>path</key>
+			<string>src/fmdb/FMDatabase.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6F019F4B57C689E3B448935B617CFF76</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F5A0569CB70F6F37A16E32EE210D0C66</string>
+				<string>F0895B2A83F948153E1E5EA38A230B66</string>
+				<string>C8FC0929A42C36174794FE1ADFD620E3</string>
+				<string>0D619A711F71058C9238B17E9AF48AFC</string>
+				<string>BA88E88A631D6BD023521B7206CE6C25</string>
+				<string>7C818AE74E830311E61FF1A7E42D0713</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>71436C4D83292C5337EF26F023323754</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0C339D5C083348266AB4B05C14AED307</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>719554A1E5A4E6DB08869A1639A6D5E0</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>362F1204A8EAAE396289155066490509</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>73E08DD3F409CC910BDF9AAC0E1BEB35</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FMDB.h</string>
+			<key>path</key>
+			<string>src/fmdb/FMDB.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>74695802583BDB0C0818AC1B97F63815</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C4BBD76359D36C69E5804A290D1C5ED2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>774678108D22A09213789D973E2051AC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>FMDB-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7844274D35D50A620E1D12E0442C03C0</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>28A0AB50FAD49C82A73B01D262EDAA4F</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-SunbeamFMDBMigration_Tests/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-SunbeamFMDBMigration_Tests/Pods-SunbeamFMDBMigration_Tests.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_SunbeamFMDBMigration_Tests</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>78B3C4994A092ABFAF5B2F042F0F7EEF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamFMDBMigration-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7AE2ED2CD4905220BA8CA73B1A0ADA74</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Example-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C818AE74E830311E61FF1A7E42D0713</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8DF62A1F971FFFC84C36F474CF296297</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>7D6BA5A1A315EAD3003B1700EA081C55</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>85EA8B85E6B0054D3773749D45BADE28</string>
+				<string>8910449430516FDF4253B8963CD9250C</string>
+				<string>400CD362AABE8438FB106825D6A954BB</string>
+				<string>0117DF7102FA29A4A491CE461DBED750</string>
+				<string>C32906568BDF1E54FEF706BCEC7761FC</string>
+				<string>DCDEBC2185289180292CCD58DE037FB7</string>
+				<string>B2616E701A8D2D4BD8CF294C0531CB95</string>
+				<string>C4435170C82FEE3A889E20F6BE776AE5</string>
+				<string>EA9C50D549DC7EFAFBEFEC1B492FCC9B</string>
+				<string>28A0AB50FAD49C82A73B01D262EDAA4F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods-SunbeamFMDBMigration_Tests</string>
+			<key>path</key>
+			<string>Target Support Files/Pods-SunbeamFMDBMigration_Tests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7DB346D0F39D3F0E887471402A8071AB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>93A4A3777CF96A4AAC1D13BA6DCCEA73</string>
+				<string>A0A4CBE14EC7A3951EE03922FFBBBF5F</string>
+				<string>D2304513832E75413DFDFE967D300314</string>
+				<string>BFB8C92E749ED180124155E2270474D2</string>
+				<string>B286543CA20D1B2149B62E1F5AE500AB</string>
+				<string>A33E89FFACFEFB4CE762AFA141DD9025</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7DC0027F0ED906626FE243722BA9A7FB</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0AAE57B80FB7F3D7E7E71454035E2B0C</string>
+				<string>900B07FB4C6BD251E91A2E7E7BACDD08</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>8315FB9D1AEDF6CFD39A357F344EED65</key>
+		<dict>
+			<key>fileRef</key>
+			<string>78B3C4994A092ABFAF5B2F042F0F7EEF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>85EA8B85E6B0054D3773749D45BADE28</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8761F79E0ECBABAD2064EFF4DBCBF277</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>SunbeamFMDBMigration.framework</string>
+			<key>path</key>
+			<string>SunbeamFMDBMigration.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>8910449430516FDF4253B8963CD9250C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Tests.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8B716EF909EAB39860857EC8E9E67EF5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7AE2ED2CD4905220BA8CA73B1A0ADA74</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>8DF62A1F971FFFC84C36F474CF296297</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>FMResultSet.m</string>
+			<key>path</key>
+			<string>src/fmdb/FMResultSet.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8FD0B67D285B107A1CE37F2F4301CF24</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5C9B9008DA230F7311D67B7F84A21CB6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>900B07FB4C6BD251E91A2E7E7BACDD08</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>977E1A9F2B932AE971BEFDB96E6F5C89</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-SunbeamFMDBMigration_Example/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-SunbeamFMDBMigration_Example/Pods-SunbeamFMDBMigration_Example.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_SunbeamFMDBMigration_Example</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>9199808A6BAB6AF3E570472E8ECE9AD4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9343841D7992BD43DE7E7A1F30E7B8C5</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>Pods_SunbeamFMDBMigration_Tests.framework</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Tests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>93A4A3777CF96A4AAC1D13BA6DCCEA73</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>text.script.ruby</string>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>Podfile</string>
+			<key>path</key>
+			<string>../Podfile</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.ruby</string>
+		</dict>
+		<key>93EF835AF71D4172CAF1D404C14A4536</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>A10E1F127AE74F04C048128E3576C567</string>
+				<string>AE84180C4A5B633979C04FFD1F8C2D59</string>
+				<string>EAA9B9275ACA1E897809882075F22970</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>977E1A9F2B932AE971BEFDB96E6F5C89</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Example.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9BD77D580E150A6139AC891818D6F1D9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamFMDBMigration-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9D2C009B8BBFA6118EF1C9553EA945A3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Example-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9E7AD1EC9891BFC6B9CECF7E47BA0550</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>5046BE6624BE84FDDA0EE68EAB665507</string>
+			<key>remoteInfo</key>
+			<string>SunbeamFMDBMigration</string>
+		</dict>
+		<key>A0A4CBE14EC7A3951EE03922FFBBBF5F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>68B91EE00C057295F0B8FE411552013D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Development Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A0D8279090E34D6E6CF4BA934C003853</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Example-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A10E1F127AE74F04C048128E3576C567</key>
+		<dict>
+			<key>fileRef</key>
+			<string>670EE85005D3472E9EA3249FCB55F90A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A2D2F8382360C935E0097F1CB2E26820</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>FMDatabasePool.m</string>
+			<key>path</key>
+			<string>src/fmdb/FMDatabasePool.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A33E89FFACFEFB4CE762AFA141DD9025</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2ED35A22785642B54324C6682C4CD62A</string>
+				<string>7D6BA5A1A315EAD3003B1700EA081C55</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A82124697E95B25065BF5AC6D962526C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A8A1B98F16F13F2F72C375E44D51EE8A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3F61BE79D4B46C119C136EDE960CE78C</string>
+				<string>74695802583BDB0C0818AC1B97F63815</string>
+				<string>6C63E2BEBE2BC08BD46F6A91D0A08143</string>
+				<string>E330886E0E7C450E9669C4BD025D9ABD</string>
+				<string>AD01D434D8D120A3767270766AD30797</string>
+				<string>3ECC23FFAE400A6B2658AAF2990D83BE</string>
+				<string>183A0D8AF38E0EE20E47F1FEF9B37327</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AD01D434D8D120A3767270766AD30797</key>
+		<dict>
+			<key>fileRef</key>
+			<string>774678108D22A09213789D973E2051AC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>AE84180C4A5B633979C04FFD1F8C2D59</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0144AD2C6CA6C443F3CDB228146BDD93</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AECC94D8201396A5DA452B831A5B5F7F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>SunbeamFMDBMigration.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B01C3BE5B8859F09F68C410FB025FB11</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Example.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B22114E7098BF8E52F899CCE1A91E6FE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>FMDB.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B2616E701A8D2D4BD8CF294C0531CB95</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Tests-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B286543CA20D1B2149B62E1F5AE500AB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>CD6D9DB44F66AA1C3712C083659E6DCB</string>
+				<string>2DC49B2CBBA9BB4E74FD7CFEF4C858ED</string>
+				<string>9343841D7992BD43DE7E7A1F30E7B8C5</string>
+				<string>8761F79E0ECBABAD2064EFF4DBCBF277</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B7ADE86BD1C1E36B1DE5372BFA4CDC0F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B97CC7F7ED98D85D31663DDFAF034BBC</string>
+				<string>B22114E7098BF8E52F899CCE1A91E6FE</string>
+				<string>D5085BA3C5279C337F6D921E5CAFB1FC</string>
+				<string>C80DA57F8CD6FA6C1FE9516FC1FCBB41</string>
+				<string>774678108D22A09213789D973E2051AC</string>
+				<string>A82124697E95B25065BF5AC6D962526C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/FMDB</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B97CC7F7ED98D85D31663DDFAF034BBC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>FMDB.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B9C86879037EB7E1AE667EA4A3BC2419</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8B716EF909EAB39860857EC8E9E67EF5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BA88E88A631D6BD023521B7206CE6C25</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D5085BA3C5279C337F6D921E5CAFB1FC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BF70D42C628C9B1E3B7142FD9373AECD</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>7DC0027F0ED906626FE243722BA9A7FB</string>
+			<key>buildPhases</key>
+			<array>
+				<string>0006B296C3202139FDC7C07D0A7CA3CB</string>
+				<string>37080B0516A5F4A2D622CDB7200588D3</string>
+				<string>B9C86879037EB7E1AE667EA4A3BC2419</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>D4C3790A41D37F372B77473B1ABAE3FC</string>
+				<string>D18884CFF007995CD362AF9D77976570</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-SunbeamFMDBMigration_Example</string>
+			<key>productName</key>
+			<string>Pods-SunbeamFMDBMigration_Example</string>
+			<key>productReference</key>
+			<string>2DC49B2CBBA9BB4E74FD7CFEF4C858ED</string>
+			<key>productType</key>
+			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>BFB8C92E749ED180124155E2270474D2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2E8A70666402923F61614F521EE0CA29</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C32906568BDF1E54FEF706BCEC7761FC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Tests-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C4435170C82FEE3A889E20F6BE776AE5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Tests-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C4BBD76359D36C69E5804A290D1C5ED2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FMDatabaseAdditions.h</string>
+			<key>path</key>
+			<string>src/fmdb/FMDatabaseAdditions.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C4D67AB6C87A971877E5CAD192592D82</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>FMDB</string>
+			<key>target</key>
+			<string>23CF27B2BA6AC7125EFFEDA8C5AA819F</string>
+			<key>targetProxy</key>
+			<string>F510D952171AEDBCA7AE761645785178</string>
+		</dict>
+		<key>C80DA57F8CD6FA6C1FE9516FC1FCBB41</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>FMDB-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C8FC0929A42C36174794FE1ADFD620E3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A2D2F8382360C935E0097F1CB2E26820</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>CA4ABB34898F80A44CDAEB3302F6E3C8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Example-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CA7F9DEB22DF723DE4BC502E4EA1E4BB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>084B049F551E64E48845305D44944540</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>CD6D9DB44F66AA1C3712C083659E6DCB</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>FMDB.framework</string>
+			<key>path</key>
+			<string>FMDB.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>CDB416058D0E4FE21BAEF2644312970C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Example.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D18884CFF007995CD362AF9D77976570</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>SunbeamFMDBMigration</string>
+			<key>target</key>
+			<string>5046BE6624BE84FDDA0EE68EAB665507</string>
+			<key>targetProxy</key>
+			<string>9E7AD1EC9891BFC6B9CECF7E47BA0550</string>
+		</dict>
+		<key>D2304513832E75413DFDFE967D300314</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0078E8D5A781B47986A348FBCC779CF6</string>
+				<string>068DCDB62BE84A2B55D025AFFF81C403</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D3E3D092A3FF7311A98E44BBA36FFD12</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>POD_CONFIGURATION_DEBUG=1</string>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>SYMROOT</key>
+				<string>${SRCROOT}/../build</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>D41D8CD98F00B204E9800998ECF8427E</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0730</string>
+				<key>LastUpgradeCheck</key>
+				<string>0700</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>7DB346D0F39D3F0E887471402A8071AB</string>
+			<key>productRefGroup</key>
+			<string>B286543CA20D1B2149B62E1F5AE500AB</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>23CF27B2BA6AC7125EFFEDA8C5AA819F</string>
+				<string>BF70D42C628C9B1E3B7142FD9373AECD</string>
+				<string>67BAC3420E63FC74F2A8C4033203FFE4</string>
+				<string>5046BE6624BE84FDDA0EE68EAB665507</string>
+			</array>
+		</dict>
+		<key>D4C3790A41D37F372B77473B1ABAE3FC</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>FMDB</string>
+			<key>target</key>
+			<string>23CF27B2BA6AC7125EFFEDA8C5AA819F</string>
+			<key>targetProxy</key>
+			<string>D50249AC87C63B413626153A99AB8224</string>
+		</dict>
+		<key>D50249AC87C63B413626153A99AB8224</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>23CF27B2BA6AC7125EFFEDA8C5AA819F</string>
+			<key>remoteInfo</key>
+			<string>FMDB</string>
+		</dict>
+		<key>D5085BA3C5279C337F6D921E5CAFB1FC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>FMDB-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D513AAC337A68F6035ABA821E57DB0CA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4FB1B367C5CCFC0703BBCFC532064354</string>
+				<string>461CA948889F73EC60BC325EC1C180DC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>D53537A7007945D623D6323F8A9FB6B4</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E14B84D9189AA7A8DE3D7CC4432DAF5C</string>
+				<string>57B7719F649F448C1E5D0DE8A5F20D4B</string>
+				<string>AECC94D8201396A5DA452B831A5B5F7F</string>
+				<string>9BD77D580E150A6139AC891818D6F1D9</string>
+				<string>FC585D7C3E0E8EBEF9C1F49200DFDD2B</string>
+				<string>78B3C4994A092ABFAF5B2F042F0F7EEF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>Example/Pods/Target Support Files/SunbeamFMDBMigration</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DB90F5A1E5710393373FC45D13DF9686</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Example-frameworks.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DCDEBC2185289180292CCD58DE037FB7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Tests-frameworks.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E130BB4A68655453C9FDC5692FA44094</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>5619B880BCDC5D5E39F35255934A1F9A</string>
+				<string>3606871B814C53A835D7AEF48F29747B</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>E14B84D9189AA7A8DE3D7CC4432DAF5C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E330886E0E7C450E9669C4BD025D9ABD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>351F8E59854BCD39585AB8A055AC2F52</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>E9BCF1BAB151F63BC26E8E2842B8C7AB</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>EA9C50D549DC7EFAFBEFEC1B492FCC9B</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-SunbeamFMDBMigration_Tests/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-SunbeamFMDBMigration_Tests/Pods-SunbeamFMDBMigration_Tests.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_SunbeamFMDBMigration_Tests</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>EA9C50D549DC7EFAFBEFEC1B492FCC9B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-SunbeamFMDBMigration_Tests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EAA9B9275ACA1E897809882075F22970</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9BD77D580E150A6139AC891818D6F1D9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>EBDD954895E7C2E7A516FC9738AD6AAC</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>6BE08C0D09F996E2821AF3673A9E9583</string>
+				<string>CA7F9DEB22DF723DE4BC502E4EA1E4BB</string>
+				<string>8315FB9D1AEDF6CFD39A357F344EED65</string>
+				<string>71436C4D83292C5337EF26F023323754</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>ED48C0E1AA39302CCDD55032B7544B36</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>FMDatabase.m</string>
+			<key>path</key>
+			<string>src/fmdb/FMDatabase.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F030D223AA255BC2D89318DCE9FAC057</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>AECC94D8201396A5DA452B831A5B5F7F</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/SunbeamFMDBMigration/SunbeamFMDBMigration-prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/SunbeamFMDBMigration/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/SunbeamFMDBMigration/SunbeamFMDBMigration.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>PRODUCT_NAME</key>
+				<string>SunbeamFMDBMigration</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>F0895B2A83F948153E1E5EA38A230B66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B97A597AFE8B5A90EDFF8560393C46B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>F1F546D17BEE96A3AC80F5733BACB23C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FMResultSet.h</string>
+			<key>path</key>
+			<string>src/fmdb/FMResultSet.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F510D952171AEDBCA7AE761645785178</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>23CF27B2BA6AC7125EFFEDA8C5AA819F</string>
+			<key>remoteInfo</key>
+			<string>FMDB</string>
+		</dict>
+		<key>F5A0569CB70F6F37A16E32EE210D0C66</key>
+		<dict>
+			<key>fileRef</key>
+			<string>ED48C0E1AA39302CCDD55032B7544B36</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-DOS_OBJECT_USE_OBJC=0</string>
+			</dict>
+		</dict>
+		<key>F6DE655E75ADFE1AA964C216FFC0DF35</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6CFEEF64A76609C0E88017B38B7E12DA</string>
+				<string>ED48C0E1AA39302CCDD55032B7544B36</string>
+				<string>C4BBD76359D36C69E5804A290D1C5ED2</string>
+				<string>4B97A597AFE8B5A90EDFF8560393C46B</string>
+				<string>01C9B19641620A44266703CB7F104828</string>
+				<string>A2D2F8382360C935E0097F1CB2E26820</string>
+				<string>351F8E59854BCD39585AB8A055AC2F52</string>
+				<string>1F3E784FE473275B6CE21E9FC8AE454E</string>
+				<string>73E08DD3F409CC910BDF9AAC0E1BEB35</string>
+				<string>F1F546D17BEE96A3AC80F5733BACB23C</string>
+				<string>8DF62A1F971FFFC84C36F474CF296297</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>standard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F92AF24E62247DB9CFC0C0D8D00512BD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C4435170C82FEE3A889E20F6BE776AE5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>FC585D7C3E0E8EBEF9C1F49200DFDD2B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamFMDBMigration-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>D41D8CD98F00B204E9800998ECF8427E</string>
+</dict>
+</plist>

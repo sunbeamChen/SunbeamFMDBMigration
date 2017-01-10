@@ -9,24 +9,11 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  SunbeamDBMigrationService lib version
+ *  SunbeamDBMigrationService service version
  */
-#define SUNBEAM_DB_MIGRATION_LIB_VERSION @"0.1.11"
+#define SUNBEAM_DB_MIGRATION_SERVICE_VERSION @"0.1.12"
 
-/**
- *  SunbeamFMDBMigration运行结果
- */
-typedef NS_ENUM(NSInteger, SunbeamDBMigrationStatus) {
-    /**
-     *  成功
-     */
-    SunbeamDBMigrationStatusFailed = 0,
-    
-    /**
-     *  失败
-     */
-    SunbeamDBMigrationStatusSuccess = 1,
-};
+@class SunbeamDBMigrationService;
 
 /**
  *  SunbeamFMDBMigration代理
@@ -34,46 +21,36 @@ typedef NS_ENUM(NSInteger, SunbeamDBMigrationStatus) {
 @protocol SunbeamDBMigrationDelegate <NSObject>
 
 /**
- *  可选服务，如果没有实现该代理方法，将会按照默认的方式进行执行
+ *  可选服务，如果没有实现该代理方法，将会按照默认的方式执行
  */
 @optional
 /**
- *  数据库迁移开始，主要用来进行相关的初始化操作
+ 数据库迁移开始，主要用来进行相关的初始化操作
+ 即初始化 lastSQLVersion、currentSQLVersion、lastDBTableDictionary、currentDBTableDictionary、originTableParamsDictionary、addTableParamsDictionary、deleteTableParamsDictionary、originTableArray、addTableArray、dropTableArray这十个对象，用户可以按照自己的规则进行保存和处理
+
+ @return NSError
  */
-- (void) prepareDBMigration;
+- (NSError *) prepareDBMigration:(SunbeamDBMigrationService *) migrationService;
 
 /**
- *  数据库迁移执行，主要用来进行具体的数据库迁移操作
+ 数据库迁移执行，主要用来进行具体的数据库迁移操作
+ 即执行数据库相关表的增删、数据库表字段的相关增删、数据库表字段数据的迁移操作
+
+ @return NSError
  */
-- (void) executeDBMigration;
+- (NSError *) executeDBMigration:(SunbeamDBMigrationService *) migrationService;
 
 /**
- *  必须实现服务，如果没有实现该代理方法，将会抛出异常
+ 数据库迁移完成后执行相关操作
+ 即按照用户自己的规则持久化lastSQLVersion等相关数据
+
+ @return NSError
  */
-@required
-/**
- *  数据库迁移完成，返回迁移的结果（出错后，会返回错误原因）
- */
-- (void) completeDBMigration;
+- (NSError *) completeDBMigration:(SunbeamDBMigrationService *) migrationService;
 
 @end
 
 @interface SunbeamDBMigrationService : NSObject
-
-/**
- *  服务名称
- */
-@property (nonatomic, copy, readonly) NSString* libName;
-
-/**
- *  服务描述
- */
-@property (nonatomic, copy, readonly) NSString* libDesc;
-
-/**
- *  服务版本
- */
-@property (nonatomic, copy, readonly) NSString* libVersion;
 
 /**
  *  初始化数据库迁移服务
@@ -84,7 +61,7 @@ typedef NS_ENUM(NSInteger, SunbeamDBMigrationStatus) {
  *
  *  @return 返回数据库迁移服务实例
  */
-- (instancetype) initSunbeamDBMigrationService:(id<SunbeamDBMigrationDelegate>) delegate customSqlBundleName:(NSString *) customSqlBundleName;
+- (instancetype) initSunbeamDBMigrationService:(id<SunbeamDBMigrationDelegate>) delegate customSqlBundleName:(NSString *) customSqlBundleName dbFilePath:(NSString *) dbFilePath dbFileName:(NSString *) dbFileName;
 
 /**
  *  数据库迁移服务代理
@@ -109,17 +86,17 @@ typedef NS_ENUM(NSInteger, SunbeamDBMigrationStatus) {
 @property (nonatomic, copy) NSString* currentSQLVersion;
 
 /**
- *  上次升级数据库解析后的sql脚本保存的地址 {"tb_user":["userId","userName","userCellphone"],...}
+ *  上次数据库升级后的sql脚本保存数据 {"tb_user":["userId","userName","userCellphone"],...}
  */
 @property (nonatomic, strong) NSMutableDictionary* lastDBTableDictionary;
 
 /**
- *  本次升级数据库解析后的sql脚本保存的地址 {"tb_user":["userId","userName","userSex","userAge"],...}
+ *  本次数据库升级后的sql脚本保存数据 {"tb_user":["userId","userName","userSex","userAge"],...}
  */
 @property (nonatomic, strong) NSMutableDictionary* currentDBTableDictionary;
 
 /**
- *  原有的数据库表字段 {"tb_user":["userId","userName"]}
+ *  未发生变化的数据库表字段 {"tb_user":["userId","userName"]}
  */
 @property (nonatomic, strong) NSMutableDictionary* originTableParamsDictionary;
 
@@ -134,28 +111,25 @@ typedef NS_ENUM(NSInteger, SunbeamDBMigrationStatus) {
 @property (nonatomic, strong) NSMutableDictionary* deleteTableParamsDictionary;
 
 /**
- *  原有的table ["tb_user",...]
+ *  未发生变化的的数据库表 ["tb_user",...]
  */
 @property (nonatomic, strong) NSMutableArray* originTableArray;
 
 /**
- *  添加的table ["tb_product",...]
+ *  增加的数据库表 ["tb_product",...]
  */
 @property (nonatomic, strong) NSMutableArray* addTableArray;
 
 /**
- *  删除的table ["tb_media",...]
+ *  删除的数据库表 ["tb_media",...]
  */
 @property (nonatomic, strong) NSMutableArray* dropTableArray;
 
 /**
- *  升级数据库结果
- */
-@property (nonatomic, assign) SunbeamDBMigrationStatus dbMigrationStatus;
+ 开始执行数据库迁移策略
 
-/**
- *  开始执行数据库迁移策略
+ @return NSError
  */
-- (void) doSunbeamDBMigration;
+- (NSError *) doSunbeamDBMigration;
 
 @end
