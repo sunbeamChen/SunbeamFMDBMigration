@@ -7,32 +7,16 @@
 //
 
 #import "SunbeamDBService.h"
-
-/**
- *  FMDB数据库服务
- */
 #import <FMDB/FMDB.h>
 
 @interface SunbeamDBService()
 
-/**
- *  FMDB数据库实例
- */
 @property (nonatomic, strong) FMDatabase* database;
 
-/**
- *  FMDB dataQueue
- */
 @property (nonatomic, strong) FMDatabaseQueue* databaseQueue;
 
-/**
- *  是否使用database queue
- */
 @property (nonatomic, assign) BOOL useDatabaseQueue;
 
-/**
- *  数据库文件具体路径
- */
 @property (nonatomic, copy) NSString* databaseFilePath;
 
 @end
@@ -55,6 +39,7 @@
  *
  *  @param dbFilePath 数据库文件路径
  *  @param dbFileName 数据库文件名称
+ *  @param useDatabaseQueue 是否使用database queue
  */
 - (NSError *) createFMDBService:(NSString *) dbFilePath dbFileName:(NSString *) dbFileName useDatabaseQueue:(BOOL) useDatabaseQueue
 {
@@ -147,7 +132,9 @@
         [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
             result = [db executeUpdate:sql withArgumentsInArray:[list copy]];
             if (!result) {
+#ifdef DEBUG
                 NSLog(@"数据库错误:%@", db.lastErrorMessage);
+#endif
                 *rollback = YES;
                 return;
             }
@@ -159,7 +146,9 @@
         if (result) {
             [self.database commit];
         } else {
+#ifdef DEBUG
             NSLog(@"数据库错误:%@", self.database.lastErrorMessage);
+#endif
             [self.database rollback];
         }
     }
@@ -180,7 +169,9 @@
         [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
             result = [db executeStatements:sqlStatements];
             if (!result) {
+#ifdef DEBUG
                 NSLog(@"数据库错误:%@", db.lastErrorMessage);
+#endif
                 *rollback = YES;
                 return ;
             }
@@ -192,7 +183,9 @@
         if (result) {
             [self.database commit];
         } else {
+#ifdef DEBUG
             NSLog(@"数据库错误:%@", self.database.lastErrorMessage);
+#endif
             [self.database rollback];
         }
     }

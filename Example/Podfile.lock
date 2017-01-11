@@ -2,7 +2,7 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
-  - SunbeamFMDBMigration (0.1.13):
+  - SunbeamFMDBMigration (0.1.14):
     - FMDB
 
 DEPENDENCIES:
@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
-  SunbeamFMDBMigration: bdca0f40b1dfc33b37b0a92968719d7fdd102e03
+  SunbeamFMDBMigration: 6eb1683ba81587da1ef06edd57bddb7e29f399ac
 
 PODFILE CHECKSUM: 302e32d106931ec9b5dd410a803fbfe8294d1416
 

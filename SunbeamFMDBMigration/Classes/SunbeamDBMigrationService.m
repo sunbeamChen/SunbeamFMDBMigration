@@ -59,7 +59,9 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         self.customSqlBundleName = customSqlBundleName;
         self.dbFilePath = dbFilePath;
         self.dbFileName = dbFileName;
+#ifdef DEBUG
         NSLog(@"sunbeam FMDB migration service version is %@", SUNBEAM_DB_MIGRATION_SERVICE_VERSION);
+#endif
     }
     
     return self;
@@ -154,7 +156,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         // 创建tb_sql，插入初始化数据值sql_version
         NSString* insertSql = [NSString stringWithFormat:@"INSERT INTO tb_sql (sql_flag,sql_version) VALUES ('%@','%@');", SQL_TABLE_SQL_FLAG_COLUMN_VALUE, self.lastSQLVersion];
         NSString* sqlStatements = [NSString stringWithFormat:@"%@\n%@", CREATE_SQL_TABLE, insertSql];
-        NSLog(@"tb_sql表不存在:\n%@", sqlStatements);
+
         if (![[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBStatements:sqlStatements]) {
             error = [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_TABLE_TB_SQL_INIT_FAILED userInfo:@{NSLocalizedDescriptionKey:@"table tb_sql init failed"}];
         }
@@ -330,7 +332,9 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         for (NSString* tbName in tableInitNameArray) {
             [sqlStatements appendString:[self formatTableCreateSQLCommand:tbName params:[self.currentDBTableDictionary objectForKey:tbName]]];
         }
+#ifdef DEBUG
         NSLog(@"SunbeamDBInitStatusFirst:\n%@", sqlStatements);
+#endif
         
         if (![[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBStatements:sqlStatements]) {
             return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_DB_INIT_FAILED userInfo:@{NSLocalizedDescriptionKey:@"db first init failed"}];
@@ -362,7 +366,9 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
             [sqlStatements appendString:[self formatTableDataMigrationSQLCommand:tbName originTableParams:[self.originTableParamsDictionary objectForKey:tbName]]];
             [sqlStatements appendString:[self formatTempTableDropSQLCommand:tbName]];
         }
+#ifdef DEBUG
         NSLog(@"SunbeamDBInitStatusUpgrade:\n%@", sqlStatements);
+#endif
         
         if (![[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBStatements:sqlStatements]) {
             return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_DB_MIGRATION_FAILED userInfo:@{NSLocalizedDescriptionKey:@"db migration failed"}];

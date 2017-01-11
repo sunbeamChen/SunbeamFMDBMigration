@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- *  SunbeamDBMigrationService service version
- */
-#define SUNBEAM_DB_MIGRATION_SERVICE_VERSION @"0.1.13"
+#define SUNBEAM_DB_MIGRATION_SERVICE_VERSION @"0.1.14"
 
 typedef enum : NSUInteger {
     

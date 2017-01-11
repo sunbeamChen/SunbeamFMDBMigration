@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SunbeamFMDBMigration'    #名称
-  s.version          = '0.1.13'  #版本号
+  s.version          = '0.1.14'  #版本号
   s.summary          = 'SunbeamFMDBMigration -> an database migration strategy when app upgrade.' #简短介绍，下面是详细介绍
   s.description      = <<-DESC
 SunbeamFMDBMigration : when app upgrating, the database structure of new version may be different from the old version, then we should save the old version data into new version to ensure that user who use the app feel nothing after they upgrade their app to the newest version. This lib support table property add、delete.
