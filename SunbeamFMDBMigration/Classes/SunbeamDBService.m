@@ -147,6 +147,7 @@
         [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
             result = [db executeUpdate:sql withArgumentsInArray:[list copy]];
             if (!result) {
+                NSLog(@"数据库错误:%@", db.lastErrorMessage);
                 *rollback = YES;
                 return;
             }
@@ -158,6 +159,40 @@
         if (result) {
             [self.database commit];
         } else {
+            NSLog(@"数据库错误:%@", self.database.lastErrorMessage);
+            [self.database rollback];
+        }
+    }
+    
+    return result;
+}
+
+/**
+ 执行sql statement语句
+ 
+ @param sqlStatements sql语句
+ @return yes/no
+ */
+- (BOOL) executeTransactionSunbeamDBStatements:(NSString *) sqlStatements
+{
+    __block BOOL result = NO;
+    if (self.useDatabaseQueue) {
+        [self.databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            result = [db executeStatements:sqlStatements];
+            if (!result) {
+                NSLog(@"数据库错误:%@", db.lastErrorMessage);
+                *rollback = YES;
+                return ;
+            }
+        }];
+    } else {
+        [self.database beginTransaction];
+        
+        result = [self.database executeStatements:sqlStatements];
+        if (result) {
+            [self.database commit];
+        } else {
+            NSLog(@"数据库错误:%@", self.database.lastErrorMessage);
             [self.database rollback];
         }
     }

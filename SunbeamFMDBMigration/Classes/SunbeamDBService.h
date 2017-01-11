@@ -34,6 +34,14 @@
 - (BOOL) executeTransactionSunbeamDBUpdate:(NSString*)sql, ...;
 
 /**
+ 执行sql statement语句
+
+ @param sqlStatements sql语句
+ @return yes/no
+ */
+- (BOOL) executeTransactionSunbeamDBStatements:(NSString *) sqlStatements;
+
+/**
  *  执行sql语句查询命令
  *
  *  @param sql sql查询语句

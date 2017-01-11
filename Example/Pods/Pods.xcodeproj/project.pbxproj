@@ -1550,6 +1550,20 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>A31BB36AB93F1223681B3F2B7FF8D449</key>
+		<dict>
+			<key>fileRef</key>
+			<string>084B049F551E64E48845305D44944540</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Project</string>
+				</array>
+			</dict>
+		</dict>
 		<key>A33E89FFACFEFB4CE762AFA141DD9025</key>
 		<dict>
 			<key>children</key>
@@ -1866,20 +1880,6 @@
 			<string>Pods-SunbeamFMDBMigration_Example-acknowledgements.plist</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CA7F9DEB22DF723DE4BC502E4EA1E4BB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>084B049F551E64E48845305D44944540</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>CD6D9DB44F66AA1C3712C083659E6DCB</key>
 		<dict>
@@ -2284,7 +2284,7 @@
 			<key>files</key>
 			<array>
 				<string>6BE08C0D09F996E2821AF3673A9E9583</string>
-				<string>CA7F9DEB22DF723DE4BC502E4EA1E4BB</string>
+				<string>A31BB36AB93F1223681B3F2B7FF8D449</string>
 				<string>8315FB9D1AEDF6CFD39A357F344EED65</string>
 				<string>71436C4D83292C5337EF26F023323754</string>
 			</array>

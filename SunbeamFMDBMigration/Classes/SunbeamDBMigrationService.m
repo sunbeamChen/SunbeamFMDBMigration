@@ -7,117 +7,45 @@
 //
 
 #import "SunbeamDBMigrationService.h"
-
-/**
- *  FMDB服务
- */
 #import "SunbeamDBService.h"
 
-/**
- *  DB状态
- */
 typedef NS_ENUM(NSInteger, SunbeamDBInitStatus) {
-    /**
-     *  DB初始化
-     */
-    SunbeamDBInitStatusFirst = 0,
-    
-    /**
-     *  DB升级
-     */
-    SunbeamDBInitStatusUpgrade = 1,
-    
-    /**
-     *  DB没有更新
-     */
-    SunbeamDBInitStatusNoUpdate = 2,
+    SunbeamDBInitStatusFirst = 0, // DB初始化
+    SunbeamDBInitStatusUpgrade = 1, // DB升级
+    SunbeamDBInitStatusNoUpdate = 2, // DB没有更新
 };
 
-/**
- *  SBFMDBMigration exception name
- */
-#define SunbeamDBMigrationErrorDomain @"SunbeamDBMigration_error_domain"
+#define SunbeamDBMigrationErrorDomain @"SunbeamDBMigration_error_domain" // SBFMDBMigration error domain
 
-typedef enum : NSUInteger {
-    SUNBEAM_DB_MIGRATION_ERROR_DELEGATE_IS_NIL = 10000, // 回调delegate为nil
-    SUNBEAM_DB_MIGRATION_ERROR_LAST_SQL_VERSION_IS_NIL = SUNBEAM_DB_MIGRATION_ERROR_DELEGATE_IS_NIL + 1, // 上次更新sql version为nil
-    SUNBEAM_DB_MIGRATION_ERROR_TABLE_SQL_CREATE_FAILED = SUNBEAM_DB_MIGRATION_ERROR_LAST_SQL_VERSION_IS_NIL + 1, // 存储sql版本的数据库表创建失败
-    SUNBEAM_DB_MIGRATION_ERROR_TABLE_SQL_DATA_INIT_FAILED = SUNBEAM_DB_MIGRATION_ERROR_TABLE_SQL_CREATE_FAILED + 1, // 插入初始化的sql版本失败
-    SUNBEAM_DB_MIGRATION_ERROR_SQL_BUNDLE_FILE_IS_NOT_EXIST = SUNBEAM_DB_MIGRATION_ERROR_TABLE_SQL_DATA_INIT_FAILED + 1, // sql bundle文件不存在
-    SUNBEAM_DB_MIGRATION_ERROR_SQL_FILE_IS_NIL = SUNBEAM_DB_MIGRATION_ERROR_SQL_BUNDLE_FILE_IS_NOT_EXIST + 1, // sql文件不存在
-    SUNBEAM_DB_MIGRATION_ERROR_CURRENT_SQL_VERSION_IS_NIL = SUNBEAM_DB_MIGRATION_ERROR_SQL_FILE_IS_NIL + 1, // 本次更新sql version为nil
-    SUNBEAM_DB_MIGRATION_ERROR_TABLE_SQL_DATA_UPDATE_FAILED = SUNBEAM_DB_MIGRATION_ERROR_CURRENT_SQL_VERSION_IS_NIL + 1, // 更新sql version失败
-} SUNBEAM_DB_MIGRATION_ERROR;
-
-/**
- *  默认sql bundle名称
- */
+// 默认sql bundle名称
 #define SQL_BUNDLE_NAME_DEFAULT @"SunbeamDBMigrationSQL.bundle"
-
-/**
- *  tb_sql数据库迁移标识字段column value
- */
+// tb_sql数据库迁移标识字段column value
 #define SQL_TABLE_SQL_FLAG_COLUMN_VALUE @"sb_sql_flag"
-
-/**
- *  tb_sql数据库迁移标识字段column key
- */
+// tb_sql数据库迁移标识字段column key
 #define SQL_TABLE_SQL_VERSION_COLUMN_NAME @"sql_version"
-
-/**
- *  default sb_version
- */
+// default sb_version
 #define SB_VERSION_DEFAULT @"0"
-
-/**
- *  查询tb_sql表是否存在
- */
-#define SELECT_SQL_TABLE_EXIST @"SELECT name FROM sqlite_master WHERE type='table' AND name='tb_sql'"
-
-/**
- *  tb_sql表创建sql语句
- */
-#define CREATE_SQL_TABLE @"CREATE TABLE IF NOT EXISTS 'tb_sql' ('sql_flag' VARCHAR(80), 'sql_version' VARCHAR(80))"
-
-/**
- *  tb_sql插入sql语句
- */
-#define INSERT_SQL_TABLE @"INSERT INTO tb_sql (sql_flag,sql_version) VALUES (?,?)"
-
-/**
- *  tb_sql更新sql语句
- */
-#define UPDATE_SQL_VERSION_BY_SQL_FLAG @"UPDATE tb_sql SET sql_version=? WHERE sql_flag=?"
-
-/**
- *  tb_sql查询sql语句
- */
-#define SELECT_SQL_VERSION_BY_SQL_FLAG @"SELECT sql_version FROM tb_sql WHERE sql_flag=?"
-
-/**
- *  sql file name regex
- */
+// 查询tb_sql表是否存在
+#define SELECT_SQL_TABLE_EXIST @"SELECT name FROM sqlite_master WHERE type='table' AND name='tb_sql';"
+// tb_sql表创建sql语句
+#define CREATE_SQL_TABLE @"CREATE TABLE IF NOT EXISTS 'tb_sql' ('sql_flag' VARCHAR(80), 'sql_version' VARCHAR(80));"
+// tb_sql更新sql语句
+#define UPDATE_SQL_VERSION_BY_SQL_FLAG @"UPDATE tb_sql SET sql_version=? WHERE sql_flag=?;"
+// tb_sql查询sql语句
+#define SELECT_SQL_VERSION_BY_SQL_FLAG @"SELECT sql_version FROM tb_sql WHERE sql_flag=?;"
+// sql file name regex
 static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
 
 @interface SunbeamDBMigrationService()
 
-/**
- *  数据库迁移服务代理
- */
 @property (nonatomic, weak, readwrite) id<SunbeamDBMigrationDelegate> delegate;
 
-/**
- *  自定义sql bundle名称
- */
 @property (nonatomic, copy, readwrite) NSString* customSqlBundleName;
 
 @property (nonatomic, copy) NSString* dbFilePath;
 
 @property (nonatomic, copy) NSString* dbFileName;
 
-/**
- *  是否首次升级数据库
- */
 @property (nonatomic, assign) SunbeamDBInitStatus dbInitStatus;
 
 @end
@@ -131,6 +59,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         self.customSqlBundleName = customSqlBundleName;
         self.dbFilePath = dbFilePath;
         self.dbFileName = dbFileName;
+        NSLog(@"sunbeam FMDB migration service version is %@", SUNBEAM_DB_MIGRATION_SERVICE_VERSION);
     }
     
     return self;
@@ -139,7 +68,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
 - (NSError *)doSunbeamDBMigration
 {
     if (self.delegate == nil) {
-        return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_DELEGATE_IS_NIL userInfo:@{NSLocalizedDescriptionKey:@"SBFMDBMigration delegate should not be nil."}];
+        return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_DELEGATE_IS_NIL userInfo:@{NSLocalizedDescriptionKey:@"db migration service delegate is nil"}];
     }
     
     if (self.customSqlBundleName == nil || [@"" isEqualToString:self.customSqlBundleName]) {
@@ -147,12 +76,10 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
     }
     
     NSError* error = nil;
-    
     error = [[SunbeamDBService sharedSunbeamDBService] createFMDBService:self.dbFilePath dbFileName:self.dbFileName useDatabaseQueue:YES];
     if (error) {
         return error;
     }
-    
     
     if ([self.delegate respondsToSelector:@selector(prepareDBMigration:)]) {
         error = [self.delegate prepareDBMigration:self];
@@ -164,9 +91,12 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
     }
     
     if ([self.delegate respondsToSelector:@selector(executeDBMigration:)]) {
-        [self.delegate executeDBMigration:self];
+        error = [self.delegate executeDBMigration:self];
     } else {
-        [self executeDBMigration];
+        error = [self executeDBMigration];
+    }
+    if (error) {
+        return error;
     }
     
     if ([self.delegate respondsToSelector:@selector(completeDBMigration:)]) {
@@ -191,7 +121,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         return error;
     }
     
-    // 初始化sql bundle文件，currentSQLVersion、lastDBTableDictionary、currentDBTableDictionary
+    // 初始化currentSQLVersion、lastDBTableDictionary、currentDBTableDictionary
     error = [self getDBTableDictionary];
     if (error) {
         return error;
@@ -208,30 +138,25 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
 {
     NSError* error = nil;
     
-    // 检查tb_sql表是否存在
     if ([self checkSQLTableExist]) {
-        // 表存在，初始化lastSQLVersion
+        // 表存在，表示当前数据库处于待升级状态
+        self.dbInitStatus = SunbeamDBInitStatusUpgrade;
+        // 初始化lastSQLVersion
         self.lastSQLVersion = [self selectLastSQLVersionFromSQLTable];
         if (self.lastSQLVersion == nil) {
-            error = [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_LAST_SQL_VERSION_IS_NIL userInfo:@{NSLocalizedDescriptionKey:@"last sql version should not be nil while tb_sql is exist."}];
-        } else {
-            // 表存在，表示当前数据库处于待升级状态
-            self.dbInitStatus = SunbeamDBInitStatusUpgrade;
+            error = [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_TABLE_TB_SQL_COLUMN_SQL_VERSION_IS_NIL userInfo:@{NSLocalizedDescriptionKey:@"last sql version should not be nil while table tb_sql is exist"}];
         }
     } else {
-        // 表不存在，首先创建tb_sql
-        if (![self createSQLTable]) {
-            error = [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_TABLE_SQL_CREATE_FAILED userInfo:@{NSLocalizedDescriptionKey:@"tb_sql table create failed."}];
-        } else {
-            // 初始化lastSQLVersion
-            self.lastSQLVersion = SB_VERSION_DEFAULT;
-            // 将初始化值插入tb_sql
-            if (![self insertSQLVersionDefault]) {
-                error = [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_TABLE_SQL_DATA_INIT_FAILED userInfo:@{NSLocalizedDescriptionKey:@"tb_sql data init failed."}];
-            } else {
-                // 表不存在，表示当前数据库处于初始化状态
-                self.dbInitStatus = SunbeamDBInitStatusFirst;
-            }
+        // 表不存在，表示当前数据库处于初始化状态
+        self.dbInitStatus = SunbeamDBInitStatusFirst;
+        // 初始化lastSQLVersion
+        self.lastSQLVersion = SB_VERSION_DEFAULT;
+        // 创建tb_sql，插入初始化数据值sql_version
+        NSString* insertSql = [NSString stringWithFormat:@"INSERT INTO tb_sql (sql_flag,sql_version) VALUES ('%@','%@');", SQL_TABLE_SQL_FLAG_COLUMN_VALUE, self.lastSQLVersion];
+        NSString* sqlStatements = [NSString stringWithFormat:@"%@\n%@", CREATE_SQL_TABLE, insertSql];
+        NSLog(@"tb_sql表不存在:\n%@", sqlStatements);
+        if (![[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBStatements:sqlStatements]) {
+            error = [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_TABLE_TB_SQL_INIT_FAILED userInfo:@{NSLocalizedDescriptionKey:@"table tb_sql init failed"}];
         }
     }
     
@@ -250,7 +175,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         }
         return NO;
     } @catch (NSException *exception) {
-        return YES;
+        return NO;
     }
 }
 
@@ -271,36 +196,6 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
 }
 
 /**
- *  创建tb_sql
- */
-- (BOOL) createSQLTable
-{
-    @try {
-        if ([[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBUpdate:CREATE_SQL_TABLE]) {
-            return YES;
-        }
-        return NO;
-    } @catch (NSException *exception) {
-        return NO;
-    }
-}
-
-/**
- *  插入tb_sql初始化数据
- */
-- (BOOL) insertSQLVersionDefault
-{
-    @try {
-        if ([[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBUpdate:INSERT_SQL_TABLE, SQL_TABLE_SQL_FLAG_COLUMN_VALUE, self.lastSQLVersion]) {
-            return YES;
-        }
-        return NO;
-    } @catch (NSException *exception) {
-        return NO;
-    }
-}
-
-/**
  *  初始化bundle文件，lastDBTableDictionary & currentDBTableDictionary
  */
 - (NSError *) getDBTableDictionary
@@ -308,7 +203,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
     NSString* sqlFilePath = [[NSBundle mainBundle] pathForResource:self.customSqlBundleName ofType:@""];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:sqlFilePath]) {
-        return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_SQL_BUNDLE_FILE_IS_NOT_EXIST userInfo:@{NSLocalizedDescriptionKey:@"sql bundle file is none exist."}];
+        return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_SQL_BUNDLE_FILE_IS_NOT_EXIST userInfo:@{NSLocalizedDescriptionKey:@"sql bundle file is not exist"}];
     }
     
     NSMutableArray* sqlNameKeyArray = [[NSMutableArray alloc] init];
@@ -322,24 +217,17 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         }
     }
     if ([sqlNameKeyArray count] == 0) {
-        return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_SQL_FILE_IS_NIL userInfo:@{NSLocalizedDescriptionKey:@"sql file is nil."}];
+        return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_SQL_FILE_IN_BUNDLE_IS_NIL userInfo:@{NSLocalizedDescriptionKey:@"sql file in bundle is nil"}];
     }
     // sqlNameKeyArray排序
     NSArray* sqlNameKeySortedArray = [sqlNameKeyArray sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     // 初始化 currentSQLVersion
     self.currentSQLVersion = [sqlNameKeySortedArray lastObject];
-    if (self.currentSQLVersion == nil) {
-        return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_CURRENT_SQL_VERSION_IS_NIL userInfo:@{NSLocalizedDescriptionKey:@"current sql version should not be nil."}];
-    }
-    
     if ([self.currentSQLVersion integerValue] <= [self.lastSQLVersion integerValue]) {
         // 当前解析版本小于上次升级版本，表示本次APP数据库不需要升级，直接返回
         self.dbInitStatus = SunbeamDBInitStatusNoUpdate;
         return nil;
     }
-    
-    // 初始化 currentDBTableDictionary
-    [self initDBTableDictionary:self.currentDBTableDictionary sqlFilePath:sqlFilePath sqlFileName:self.currentSQLVersion];
     
     // 初始化 lastDBTableDictionary
     if (self.dbInitStatus == SunbeamDBInitStatusFirst) {
@@ -347,6 +235,9 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
     } else {
         [self initDBTableDictionary:self.lastDBTableDictionary sqlFilePath:sqlFilePath sqlFileName:self.lastSQLVersion];
     }
+    
+    // 初始化 currentDBTableDictionary
+    [self initDBTableDictionary:self.currentDBTableDictionary sqlFilePath:sqlFilePath sqlFileName:self.currentSQLVersion];
     
     return nil;
 }
@@ -357,13 +248,11 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
     NSString* filePath = [NSString stringWithFormat:@"%@/%@.sql", sqlFilePath, sqlFileName];
     NSString * sqlCommandString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     NSArray * sqlCommands = [sqlCommandString componentsSeparatedByString:@";"];
-    
     for(NSString* command in sqlCommands) {
         NSString * trimmedCommand = [command stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if ([trimmedCommand length] == 0) {
             continue;
         }
-        NSLog(@"%@ command is : %@", sqlFileName, trimmedCommand);
         NSMutableArray* tableStringArray = [NSMutableArray arrayWithArray:[trimmedCommand componentsSeparatedByString:@"|"]];
         NSString* key = [tableStringArray objectAtIndex:0];
         [tableStringArray removeObjectAtIndex:0];
@@ -405,12 +294,13 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
 
 - (void) initTableParamsIntoDict:(NSString *) tableName lastTableParamsArray:(NSMutableArray *) lastTableParamsArray currentTableParamsArray:(NSMutableArray *) currentTableParamsArray
 {
+    NSMutableArray* tempLastTableParamsArray = [NSMutableArray arrayWithArray:lastTableParamsArray];
     NSMutableArray* originParamsArray = [[NSMutableArray alloc] init];
     NSMutableArray* addParamsArray = [[NSMutableArray alloc] init];
     NSMutableArray* deleteParamsArray = nil;
     
     for (NSString* currentParam in currentTableParamsArray) {
-        if ([lastTableParamsArray containsObject:currentParam]) {
+        if ([tempLastTableParamsArray containsObject:currentParam]) {
             // 原有的
             [originParamsArray addObject:currentParam];
         } else {
@@ -418,10 +308,10 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
             [addParamsArray addObject:currentParam];
         }
         
-        [lastTableParamsArray removeObject:currentParam];
+        [tempLastTableParamsArray removeObject:currentParam];
     }
     // 删除的
-    deleteParamsArray = lastTableParamsArray;
+    deleteParamsArray = tempLastTableParamsArray;
     
     [self.originTableParamsDictionary setObject:originParamsArray forKey:tableName];
     [self.addTableParamsDictionary setObject:addParamsArray forKey:tableName];
@@ -429,65 +319,57 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
 }
 
 #pragma mark - execute db migration
-- (void) executeDBMigration
+- (NSError *) executeDBMigration
 {
     if (self.dbInitStatus == SunbeamDBInitStatusFirst) {
         // 数据库表初次初始化
         // 根据currentDBTableDictionary初始化所有表格
+        NSMutableString* sqlStatements = [NSMutableString stringWithString:@""];
+        
         NSArray* tableInitNameArray = [self.currentDBTableDictionary allKeys];
         for (NSString* tbName in tableInitNameArray) {
-            if (![self executeMigrationSQLCommand:[self formatTableCreateSQLCommand:tbName params:[self.currentDBTableDictionary objectForKey:tbName]]]) {
-                NSLog(@"DB Table create failed.");
-            }
+            [sqlStatements appendString:[self formatTableCreateSQLCommand:tbName params:[self.currentDBTableDictionary objectForKey:tbName]]];
+        }
+        NSLog(@"SunbeamDBInitStatusFirst:\n%@", sqlStatements);
+        
+        if (![[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBStatements:sqlStatements]) {
+            return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_DB_INIT_FAILED userInfo:@{NSLocalizedDescriptionKey:@"db first init failed"}];
         }
     } else if (self.dbInitStatus == SunbeamDBInitStatusUpgrade) {
         // 数据库表升级
-        //首先删除原来存在的表的临时表，表名为temp_"tableName"(防止脏数据)
-        for (NSString* tbName in self.originTableArray) {
-            if (![self executeMigrationSQLCommand:[self formatTableDropSQLCommand:tbName]]) {
-                NSLog(@"Temp DB Table drop failed.");
-            }
-        }
+        NSMutableString* sqlStatements = [NSMutableString stringWithString:@""];
         
-        // 根据dropTableArray删除table
+        // 清理表名为temp_"tableName"的表格(防止脏数据)
+        for (NSString* tbName in self.originTableArray) {
+            [sqlStatements appendString:[self formatTempTableDropSQLCommand:tbName]];
+        }
+        // dropTableArray删除表格
         for (NSString* dropTBName in self.dropTableArray) {
-            if (![self executeMigrationSQLCommand:[self formatTableDropSQLCommand:dropTBName]]) {
-                NSLog(@"Origin DB Table drop failed.");
-            }
+            [sqlStatements appendString:[self formatTableDropSQLCommand:dropTBName]];
         }
-        
-        // 根据originTableArray升级table
-        // 将所有原有的table修改名称为 temp_"tableName"
+        // originTableArray修改表名为temp_"tableName"
         for (NSString* tbName in self.originTableArray) {
-            if (![self executeMigrationSQLCommand:[self formatTableRenameSQLCommand:tbName]]) {
-                NSLog(@"Origin DB Table rename failed.");
-            }
+            [sqlStatements appendString:[self formatTableRenameSQLCommand:tbName]];
         }
-        
-        // 创建新的table
+        // currentDBTableDictionary创建新表格
         NSArray* tableInitNameArray = [self.currentDBTableDictionary allKeys];
         for (NSString* tbName in tableInitNameArray) {
-            if (![self executeMigrationSQLCommand:[self formatTableCreateSQLCommand:tbName params:[self.currentDBTableDictionary objectForKey:tbName]]]) {
-                NSLog(@"New DB Table create failed.");
-            }
+            [sqlStatements appendString:[self formatTableCreateSQLCommand:tbName params:[self.currentDBTableDictionary objectForKey:tbName]]];
         }
-        
-        // 1、originTableParamsDictionary
-        // 2、addTableParamsDictionary
-        // 3、deleteTableParamsDictionary
-        // 迁移数据
+        // originTableParamsDictionary迁移数据
         NSArray* originTableNameArray = [self.originTableParamsDictionary allKeys];
         for (NSString* tbName in originTableNameArray) {
-            if (![self executeMigrationSQLCommand:[self formatTableDataMigrationSQLCommand:tbName originTableParams:[self.originTableParamsDictionary objectForKey:tbName]]]) {
-                NSLog(@"New DB Table data migration failed.");
-            } else {
-                // 迁移数据成功后删除tempTables
-                if (![self executeMigrationSQLCommand:[self formatTempTableDropSQLCommand:tbName]]) {
-                    NSLog(@"Temp DB Table drop failed.");
-                }
-            }
+            [sqlStatements appendString:[self formatTableDataMigrationSQLCommand:tbName originTableParams:[self.originTableParamsDictionary objectForKey:tbName]]];
+            [sqlStatements appendString:[self formatTempTableDropSQLCommand:tbName]];
+        }
+        NSLog(@"SunbeamDBInitStatusUpgrade:\n%@", sqlStatements);
+        
+        if (![[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBStatements:sqlStatements]) {
+            return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_DB_MIGRATION_FAILED userInfo:@{NSLocalizedDescriptionKey:@"db migration failed"}];
         }
     }
+    
+    return nil;
 }
 
 /**
@@ -505,7 +387,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         }
     }
     
-    return [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,%@)", tableName, sqlString];
+    return [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,%@);\n", tableName, sqlString];
 }
 
 /**
@@ -513,7 +395,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
  */
 - (NSString *) formatTableDropSQLCommand:(NSString *) tableName
 {
-    return [NSString stringWithFormat:@"DROP TABLE '%@'", tableName];
+    return [NSString stringWithFormat:@"DROP TABLE IF EXISTS '%@';\n", tableName];
 }
 
 /**
@@ -523,7 +405,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
 {
     NSString* tempTableName = [NSString stringWithFormat:@"temp_%@", tableName];
     
-    return [NSString stringWithFormat:@"ALTER TABLE %@ RENAME TO %@", tableName, tempTableName];
+    return [NSString stringWithFormat:@"ALTER TABLE %@ RENAME TO %@;\n", tableName, tempTableName];
 }
 
 /**
@@ -543,7 +425,7 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
         }
     }
     
-    return [NSString stringWithFormat:@"INSERT INTO '%@' (%@) SELECT %@ FROM '%@'", tableName, sqlString, sqlString, tempTableName];
+    return [NSString stringWithFormat:@"INSERT INTO '%@' (%@) SELECT %@ FROM '%@';\n", tableName, sqlString, sqlString, tempTableName];
 }
 
 /**
@@ -553,48 +435,20 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
 {
     NSString* tempTableName = [NSString stringWithFormat:@"temp_%@", tableName];
     
-    return [NSString stringWithFormat:@"DROP TABLE IF EXISTS '%@'", tempTableName];
-}
-
-/**
- *  执行数据库迁移相关sql命令
- */
-- (BOOL) executeMigrationSQLCommand:(NSString *) sqlCommand
-{
-    @try {
-        if ([[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBUpdate:sqlCommand]) {
-            return YES;
-        }
-        return NO;
-    } @catch (NSException *exception) {
-        return NO;
-    }
+    return [NSString stringWithFormat:@"DROP TABLE IF EXISTS '%@';\n", tempTableName];
 }
 
 #pragma mark - complete db migration
 - (NSError *) completeDBMigration
 {
-    // 将当前sql脚本的版本存入数据库
-    if (![self executeDBVersionUpdate]) {
-        return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_TABLE_SQL_DATA_UPDATE_FAILED userInfo:@{NSLocalizedDescriptionKey:@"update sql version failed."}];
+    if (self.dbInitStatus == SunbeamDBInitStatusFirst || self.dbInitStatus == SunbeamDBInitStatusUpgrade) {
+        // 将当前sql脚本的版本存入数据库
+        if (![[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBUpdate:UPDATE_SQL_VERSION_BY_SQL_FLAG, self.currentSQLVersion, SQL_TABLE_SQL_FLAG_COLUMN_VALUE]) {
+            return [NSError errorWithDomain:SunbeamDBMigrationErrorDomain code:SUNBEAM_DB_MIGRATION_ERROR_TABLE_SQL_DATA_UPDATE_FAILED userInfo:@{NSLocalizedDescriptionKey:@"update sql version failed"}];
+        }
     }
     
     return nil;
-}
-
-/**
- *  数据库升级成功后，更新当前数据库sql version
- */
-- (BOOL) executeDBVersionUpdate
-{
-    @try {
-        if ([[SunbeamDBService sharedSunbeamDBService] executeTransactionSunbeamDBUpdate:UPDATE_SQL_VERSION_BY_SQL_FLAG, self.currentSQLVersion, SQL_TABLE_SQL_FLAG_COLUMN_VALUE]) {
-            return YES;
-        }
-        return NO;
-    } @catch (NSException *exception) {
-        return NO;
-    }
 }
 
 #pragma mark - private method
@@ -617,6 +471,15 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
     return _currentDBTableDictionary;
 }
 
+- (NSMutableDictionary *)originTableParamsDictionary
+{
+    if (_originTableParamsDictionary == nil) {
+        _originTableParamsDictionary = [[NSMutableDictionary alloc] init];
+    }
+    
+    return _originTableParamsDictionary;
+}
+
 - (NSMutableDictionary *)addTableParamsDictionary
 {
     if (_addTableParamsDictionary == nil) {
@@ -633,15 +496,6 @@ static NSString *const SQLFilenameRegexString = @"^(\\d+)\\.sql$";
     }
     
     return _deleteTableParamsDictionary;
-}
-
-- (NSMutableDictionary *)originTableParamsDictionary
-{
-    if (_originTableParamsDictionary == nil) {
-        _originTableParamsDictionary = [[NSMutableDictionary alloc] init];
-    }
-    
-    return _originTableParamsDictionary;
 }
 
 - (NSMutableArray *)originTableArray
